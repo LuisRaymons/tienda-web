@@ -1,0 +1,49 @@
+body{
+  background-image: url("../img/loginfondo3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.loginlayout{
+  background-color: #364ac4 !important;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  opacity: 0.8;
+}
+
+.textwhite{
+  color: #fefafa;
+  font-weight: bold;
+}
+.textcenterparrafo{
+  margin-top: 5%;
+  color: rgb(223, 30, 30);
+  font-weight: bold;
+  text-align: center;
+}
+.error{
+  color: red;
+}
+.container-center-titulo{
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: %;
+  color: #fefafa;;
+}
+
+.form-control-feedback {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+.form-control {
+  padding-left: 30px!important;
+}
+
+#img-login-user{
+  margin-left: 35%;
+  margin-bottom: 7%;
+  width: 30%;
+}
