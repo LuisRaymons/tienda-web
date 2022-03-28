@@ -16,11 +16,9 @@ use App\Http\Controllers\Dashboardcontroller;
 use App\Http\Controllers\Auth\LoginController;
 
 
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 Route::post('/login', [UsuarioController::class,'loginauth'])->name('loginauth');
 Route::group(['middleware' => ['authapi']], function () {
   Route::prefix('almacen')->group(function(){
@@ -62,6 +60,11 @@ Route::group(['middleware' => ['authapi']], function () {
   });
   Route::prefix('producto/precio')->group(function(){
     Route::post('/get/one',[PrecioProductoController::class, 'getprodutprecio'])->name('getproductprecio');
+    Route::post('/get',[PrecioProductoController::class, 'getprodutpreciotable'])->name('getprodutpreciotable');
+    Route::post('missing', [PrecioProductoController::class, 'getProductPriceMissing'])->name('getProductPriceMissing');
+    Route::post('/add', [PrecioProductoController::class, 'storeApi'])->name('storeApi');
+    Route::post('/update', [PrecioProductoController::class, 'updateApi'])->name('updateApi');
+    Route::post('/delete', [PrecioProductoController::class, 'destroyApi'])->name('destroyApi');
   });
   Route::prefix('promotor')->group(function(){
     Route::post('/get',[PromotorController::class, 'getdatapromotor'])->name('getpromotors');

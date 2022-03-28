@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
         'http://127.0.0.1/tienda/public/promotor/new', // nuevo promotor
         'http://127.0.0.1/tienda/public/compra/new', // nuevo compra
         'http://127.0.0.1/tienda/public/venta/new', // nuevo venta
+        'http://127.0.0.1/tienda/public/producto/precios/new', // nuevo precio producto
 
           // Modificaciones
         'http://127.0.0.1/tienda/public/categoria/update', // update categoria producto
@@ -23,6 +24,7 @@ class VerifyCsrfToken extends Middleware
         'http://127.0.0.1/tienda/public/almacen/update', // update almacen
         'http://127.0.0.1/tienda/public/promotor/update', // update almacen
         'http://127.0.0.1/tienda/public/compra/update', // update compra
+        'http://127.0.0.1/tienda/public/producto/precios/update', // update precio producto
 
         // Eliminar
         'http://127.0.0.1/tienda/public/categoria/delete/*', // delete categoria producto
@@ -32,9 +34,10 @@ class VerifyCsrfToken extends Middleware
         'http://127.0.0.1/tienda/public/almacen/delete/*', // delete almacen
         'http://127.0.0.1/tienda/public/promotor/delete/*', // delete almacen
         'http://127.0.0.1/tienda/public/compra/delete/*', // delete compra
+        'http://127.0.0.1/tienda/public/producto/precios/delete/*', // delete compra
 
         // dashoboard
-        'http://127.0.0.1/tienda/public/ventas/total', // delete compra
+        'http://127.0.0.1/tienda/public/venta/total', // delete compra
 
 
 

@@ -169,7 +169,6 @@ $("#btnsavecategoriaedit").click(function(e){
       },
       messages:{
         categorianameupdate:{required: "Se requiere el nombre de la categoria"},
-
       },
   });
   if(validFormCategoriaEdit.form()){
@@ -238,7 +237,7 @@ $("#btnsavecategorianew").click(function(e){
           timer: 2000
         });
 
-        if(categoria.code){
+        if(categoria.code == 200){
           $("#namenewcategoria").val("");
           $("#nav-register").removeClass('active');
           $("#nav-register").attr('aria-selected', false);
@@ -258,3 +257,25 @@ $("#btnsavecategorianew").click(function(e){
     });
   }
 });
+
+
+// loading
+const loadinproccess = (valor, cadena) => {
+    let val = valor;
+    let timerInterval;
+    let aux = 50000;
+    if (val == false) {
+        aux = 100;
+    }
+    var spinner = '<div class="spinner-border" style="width: 3rem;height:3rem;color:#f39c12;" role="status"><span class = "sr-only" > Loading... < /span> </div>';
+    Swal.fire({
+        html: "<h5>Espere un momento </h5><h6>" + cadena + "</h6><br>" + spinner,
+        timer: aux,
+        width: 300,
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    });
+}

@@ -33,7 +33,7 @@
       </table>
     </div>
     <div class="tab-pane fade" id="nav-register-target" role="tabpanel" aria-labelledby="nav-register-target-tab">
-      <form action="index.html" method="post" id="form-new-compra">
+      <form action="" method="post" id="form-new-compra">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Cantidad de productos</label>
           <input type="number" class="form-control" name="stockcompra" id="stockcompra" required/>

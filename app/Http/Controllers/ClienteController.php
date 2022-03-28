@@ -35,7 +35,7 @@ class ClienteController extends Controller
                                 }
                        });
              }
-       })->whereBetween('id', [$request->start + 1, $request->start + $request->length])->orderBy($orderBy, $oder)->get();
+       })->where('id', '!=', 1)->whereBetween('id', [$request->start + 1, $request->start + $request->length])->orderBy($orderBy, $oder)->get();
 
         $draw = isset($request->draw) ? $request->draw : 0;
 

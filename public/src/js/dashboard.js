@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 const cargarproductinexistentes = () => {
   $.ajax({
-    url:"product/inexistentes",
+    url:"producto/inexistentes",
     type:"GET",
     success:function(inexistentes){
 
@@ -59,7 +59,7 @@ const totalventabyuser = () => {
       formdata.append("to",to);
 
       $.ajax({
-        url:"ventas/total",
+        url:"venta/total",
         type:"POST",
         data:formdata,
         processData: false,
@@ -139,7 +139,7 @@ const charventastotalesmes = () => {
   const $grafica = document.querySelector("#chartventastotalesmes");
 
   $.ajax({
-    url:"ventas/total/mes",
+    url:"venta/total/mes",
     type: "GET",
     success:function(venta){
       if(venta.code == 200){
@@ -190,7 +190,7 @@ const charventasbyclient = () => {
   const $grafica = document.querySelector("#ventasporuser");
 
   $.ajax({
-    url:"ventas/total/mes/" + user,
+    url:"venta/total/mes/" + user,
     type:"GET",
     success:function(venta){
 
@@ -230,4 +230,26 @@ const charventasbyclient = () => {
     }
   });
 
+}
+
+
+// loading
+const loadinproccess = (valor, cadena) => {
+    let val = valor;
+    let timerInterval;
+    let aux = 50000;
+    if (val == false) {
+        aux = 100;
+    }
+    var spinner = '<div class="spinner-border" style="width: 3rem;height:3rem;color:#f39c12;" role="status"><span class = "sr-only" > Loading... < /span> </div>';
+    Swal.fire({
+        html: "<h5>Espere un momento </h5><h6>" + cadena + "</h6><br>" + spinner,
+        timer: aux,
+        width: 300,
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    });
 }

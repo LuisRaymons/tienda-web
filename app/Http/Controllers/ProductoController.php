@@ -127,6 +127,7 @@ class ProductoController extends Controller
        }
 
     } catch (\Exception $e) {
+      Log::error("Ocurrio un error al insertar el producto" . "\n" . $e->getMessage());
       $result['code'] = 500;
       $result['status'] = 'error';
       $result['msm'] = 'Error al guardar la informacion del nuevo producto';
