@@ -20,11 +20,11 @@ class UsuarioController extends Controller
     }
     public function getUsuarioData(Request $request){
        try {
-         $usertotal = User::whereNull('deleted_at')->get();
+         $usertotal = User::whereNull('deleted_at')->where('id','!=',1)->get();
          $userColumn=$this->columnas;
          $word = explode(" ",$request->search['value']);
 
-         $users = User::whereNull('deleted_at')->where(function ($query) use ($userColumn,$word) {
+         $users = User::whereNull('deleted_at')->where('id','!=',1)->where(function ($query) use ($userColumn,$word) {
               foreach ($word as $word) {
                        $query = $query->where(function ($query) use ($userColumn,$word) {
                                  foreach ($userColumn as $column) {
@@ -217,7 +217,7 @@ class UsuarioController extends Controller
     }
     public function destroy($id){
       try {
-        $exist = User::whereNull('deleted_at')->where('id','=',$id)->count();
+        $exist = User::whereNull('deleted_at')->where('id','!=',1)->where('id','=',$id)->count();
 
         if($exist > 0){
           $model = User::whereNull('deleted_at')->find($id);
@@ -265,7 +265,7 @@ class UsuarioController extends Controller
     /*-----------------------------API-----------------------------*/
     public function getdatauser(Request $request){
       try {
-        $exist = User::whereNull('deleted_at')->count();
+        $exist = User::whereNull('deleted_at')->where('id','!=',1)->count();
         $pagina = isset($request->pag) ? $request->pag : 1;
         $registerpagina = isset($request->numpag) ? $request->numpag : 20;
 
@@ -274,7 +274,7 @@ class UsuarioController extends Controller
           $start = $this->paginainicio($pagina,$registerpagina);
           $end = $this->paginaend($start,$request->numpag - 1);
 
-          $usuarios = User::whereNull('deleted_at')->select('id','name','email','type','img','api_token')
+          $usuarios = User::whereNull('deleted_at')->where('id','!=',1)->select('id','name','email','type','img','api_token')
                           ->get();
 
           $arrayregistros = array();
@@ -486,10 +486,10 @@ class UsuarioController extends Controller
          );
 
          if(!$validator->fails()){
-           $exist = User::whereNull('deleted_at')->where('id','=',$request->id)->count();
+           $exist = User::whereNull('deleted_at')->where('id','!=',1)->where('id','=',$request->id)->count();
 
            if($exist > 0){
-             $modeluser = User::whereNull('deleted_at')->where('id','=',$request->id)->first();
+             $modeluser = User::whereNull('deleted_at')->where('id','!=',1)->where('id','=',$request->id)->first();
              $modeluser->deleted_at = date('Y-m-d H:m:s');
              $modeluser->save();
 

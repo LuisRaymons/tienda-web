@@ -39,7 +39,7 @@
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="home" class="brand-link">
-          <span class="brand-text font-weight-light">AdminLTE 3</span>
+          <span class="brand-text font-weight-light">Tienda Virtual</span>
         </a>
 
         <!-- Sidebar -->
@@ -126,8 +126,6 @@
                     <p>Precio Producto<!-- <span class="right badge badge-danger">New</span> --></p>
                   </a>
                 </li>
-
-
               </ul>
             </nav>
           </div>

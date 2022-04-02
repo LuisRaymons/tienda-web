@@ -57,6 +57,7 @@ Route::group(['middleware' => ['authapi']], function () {
     Route::post('/add',[ProductoController::class, 'storeApi'])->name('addproduct');
     Route::post('/update',[ProductoController::class, 'updateApi'])->name('updateApi');
     Route::post('/delete',[ProductoController::class, 'deleteApi'])->name('deleteApi');
+    Route::post('/inexistentes',[Dashboardcontroller::class, 'getproductinexistentes'])->name('getproductinexistentes');
   });
   Route::prefix('producto/precio')->group(function(){
     Route::post('/get/one',[PrecioProductoController::class, 'getprodutprecio'])->name('getproductprecio');
