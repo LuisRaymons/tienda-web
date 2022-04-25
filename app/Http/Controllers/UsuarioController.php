@@ -91,7 +91,7 @@ class UsuarioController extends Controller
              $newUser->name = $request->nameuser;
              $newUser->email = $request->emailuser;
              $newUser->password = Hash::make($request->passworduser);
-             $newUser->img = isset($request->imgnewuser) ? "storage/asset/users/" . $namefull : '';
+             $newUser->img = isset($request->imgnewuser) ? "storage/asset/users/" . $namefull : 'src/img/user-icon-6.png';
              $newUser->type = $request->typeusernew;
              $newUser->created_at = date('Y-m-d H:m:s');
              $newUser->updated_at = date('Y-m-d H:m:s');
@@ -381,7 +381,7 @@ class UsuarioController extends Controller
              $modeluser->name = isset($request->name) ? $request->name : '';
              $modeluser->email = isset($request->email) ? $request->email : '';
              $modeluser->password = isset($request->password) ?  Hash::make(trim($request->password)) : '';
-             $modeluser->img = isset($request->img) ? "storage/asset/users/" . $namefull : '';
+             $modeluser->img = isset($request->img) ? "storage/asset/users/" . $namefull : 'src/img/user-icon-6.png';
              $modeluser->type = isset($request->typeuser) ? $request->typeuser : 'Cliente';
              $modeluser->api_token = Str::random(30);
              $modeluser->created_at = date('Y-m-d H:m:s');
@@ -449,7 +449,7 @@ class UsuarioController extends Controller
                 $modeluser->password = isset($request->password) ?  Hash::make(trim($request->password)) : '';
               }
               if(isset($request->img)){
-                $modeluser->img = isset($request->img) ? "storage/asset/users/" . $namefull : '';
+                $modeluser->img = isset($request->img) ? "storage/asset/users/" . $namefull : 'src/img/user-icon-6.png';
               }
               $modeluser->type = isset($request->typeuser) ? $request->typeuser : 'Cliente';
               $modeluser->updated_at = date('Y-m-d H:m:s');

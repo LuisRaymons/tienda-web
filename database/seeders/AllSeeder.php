@@ -23,8 +23,8 @@ class AllSeeder extends Seeder
         DB::table('typePay')->insert(['name'=> 'Efectivo','created_at'=> date('Y-m-d H:m:s'),'updated_at'=> date('Y-m-d H:m:s')]);
         DB::table('typePay')->insert(['name'=> 'Tarjeta de credito o debito','created_at'=> date('Y-m-d H:m:s'),'updated_at'=> date('Y-m-d H:m:s')]);
         DB::table('typePay')->insert(['name'=> 'Mercado Pago','created_at'=> date('Y-m-d H:m:s'),'updated_at'=> date('Y-m-d H:m:s')]);
-        ClienteModel::insert(['nombre'=> 'Cliente', 'apellidos' => 'Generico', 'telefono' => '0000000000','img'=>'https://www.cognodata.com/wp-content/uploads/2019/01/perfil-de-cliente-e1549901099803-1.jpg', 'direccion'=>'-----', 'cp'=> '000000', 'colonia' => '-------','created_at'=> date('Y-m-d H:m:s'),'updated_at'=> date('Y-m-d H:m:s')]);
-        User::insert(['name'=>'Admin Admin','email'=>'superadmin@gmail.com','password'=>Hash::make('Admin123'),'type'=>'Administrador','api_token'=>'MqN7lCKFy0lRfXxnhjYLnVf5Pkg83K','created_at'=> date('Y-m-d H:m:s'),'updated_at'=> date('Y-m-d H:m:s')]);
+        ClienteModel::insert(['nombre'=> 'Cliente', 'apellidos' => 'Generico', 'telefono' => '0000000000','img'=>'src/img/user-icon-6.png', 'direccion'=>'-----', 'cp'=> '000000', 'colonia' => '-------','created_at'=> date('Y-m-d H:m:s'),'updated_at'=> date('Y-m-d H:m:s')]);
+        User::insert(['name'=>'Admin Admin','email'=>'superadmin@gmail.com','password'=>Hash::make('Admin123'),'img'=>'src/img/user-icon-6.png','type'=>'Administrador','api_token'=>'MqN7lCKFy0lRfXxnhjYLnVf5Pkg83K','created_at'=> date('Y-m-d H:m:s'),'updated_at'=> date('Y-m-d H:m:s')]);
         CategoriaModel::factory()->count(5)->create()->each(function($categoria){
           $user = User::factory()->count(4)->create();
           $cliente = ClienteModel::factory()->count(20)->create();
