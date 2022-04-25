@@ -38,6 +38,7 @@ class VerifyCsrfToken extends Middleware
 
         // dashoboard
         'http://127.0.0.1/tienda/public/venta/total', // delete compra
+        'http://127.0.0.1/tienda/public/producto/precio/get/one', // obtener el prrecio de un producto
 
 
 

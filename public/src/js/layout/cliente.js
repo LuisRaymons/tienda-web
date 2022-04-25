@@ -29,8 +29,7 @@ const tabledoading = () => {
           destroy: true,
   		    processing: true,
   		    serverSide: true,
-          stateSave: true,
-          paging: true,
+
           lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, 100, "All"] ],
           pagingType: "full_numbers",
           pageLength: 25,

@@ -24,6 +24,7 @@ Route::group(['middleware' => ['authapi']], function () {
   Route::prefix('almacen')->group(function(){
     Route::post('/get', [AlmacenController::class, 'getdataalmacen'])->name('getdataalamacen');
     Route::post('/get/one', [AlmacenController::class, 'getonealmacen'])->name('getdataalamacenbyid');
+    Route::post('/get/all', [AlmacenController::class, 'getalmacenall'])->name('getdataalamacenall');
     Route::post('/update', [AlmacenController::class, 'updateApi'])->name('updateApi');
   });
   Route::prefix('categoria/producto')->group(function(){
@@ -45,6 +46,7 @@ Route::group(['middleware' => ['authapi']], function () {
   Route::prefix('usuario')->group(function(){
     Route::post('/get',[UsuarioController::class, 'getdatauser'])->name('getusers');
     Route::post('/get/one',[UsuarioController::class, 'getdatauserone'])->name('getuserone');
+    Route::post('/get/all',[UsuarioController::class, 'getdatauserall'])->name('getusersall');
     Route::post('/add',[UsuarioController::class, 'storeApi'])->name('storeApi');
     Route::post('/update',[UsuarioController::class, 'updateApi'])->name('updateApi');
     Route::post('/delete',[UsuarioController::class, 'destroyApi'])->name('destroyApi');
@@ -60,8 +62,9 @@ Route::group(['middleware' => ['authapi']], function () {
     Route::post('/inexistentes',[Dashboardcontroller::class, 'getproductinexistentes'])->name('getproductinexistentes');
   });
   Route::prefix('producto/precio')->group(function(){
-    Route::post('/get/one',[PrecioProductoController::class, 'getprodutprecio'])->name('getproductprecio');
     Route::post('/get',[PrecioProductoController::class, 'getprodutpreciotable'])->name('getprodutpreciotable');
+    Route::post('/get/one',[PrecioProductoController::class, 'getprodutprecio'])->name('getproductprecio');
+    Route::post('/get/all',[PrecioProductoController::class, 'getprodutprecioall'])->name('getproductprecioall');
     Route::post('missing', [PrecioProductoController::class, 'getProductPriceMissing'])->name('getProductPriceMissing');
     Route::post('/add', [PrecioProductoController::class, 'storeApi'])->name('storeApi');
     Route::post('/update', [PrecioProductoController::class, 'updateApi'])->name('updateApi');
@@ -78,6 +81,7 @@ Route::group(['middleware' => ['authapi']], function () {
   Route::prefix('compra')->group(function(){
     Route::post('/get',[CompraController::class, 'getdatacompra'])->name('getcompras');
     Route::post('/get/one',[CompraController::class, 'getdatacompraone'])->name('getcompraone');
+    Route::post('/get/all',[CompraController::class, 'getdatacompraall'])->name('getcompraall');
     Route::post('/add',[CompraController::class, 'storeApi'])->name('storeApi');
     Route::post('/update',[CompraController::class, 'updateApi'])->name('updateApi');
     Route::post('/delete',[CompraController::class, 'destroyApi'])->name('destroyApi');
@@ -85,6 +89,7 @@ Route::group(['middleware' => ['authapi']], function () {
   Route::prefix('venta')->group(function(){
     Route::post('/get',[VentaController::class, 'getdataventa'])->name('getventas');
     Route::post('/get/one',[VentaController::class, 'getdataventaone'])->name('getventasone');
+    Route::post('/get/all',[VentaController::class, 'getdataventaall'])->name('getventasall');
     Route::post('/add',[VentaController::class, 'storeApi'])->name('storeApi');
 
     Route::post('/total/mes',[Dashboardcontroller::class, 'getventasbymestotalApi'])->name('getventasbymestotalApi');

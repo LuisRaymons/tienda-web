@@ -22,33 +22,51 @@ class VentaController extends Controller
   }
   public function getventasData(Request $request){
       try {
-        $compraColumn=$this->columnas;
+        $ventaColumn=$this->columnas;
 				$word = explode(" ",$request->search['value']);
 
         $orderBy = isset($request->order[0]['column'])==0 ? $this->columnas[$request->order[0]['column'] - 1] : 'venta.id';
         $oder = isset($request->order[0]['dir']) ? $request->order[0]['dir'] : 'ASC';
 
-        $compra = VentaModel::whereNull('venta.deleted_at')->where(function ($query) use ($compraColumn,$word) {
+        $venta = VentaModel::whereNull('venta.deleted_at')->where(function ($query) use ($ventaColumn,$word) {
                     				      foreach ($word as $word) {
-                    							         $query = $query->where(function ($query) use ($compraColumn,$word) {
-                    								                 foreach ($compraColumn as $column) {
+                    							         $query = $query->where(function ($query) use ($ventaColumn,$word) {
+                    								                 foreach ($ventaColumn as $column) {
                     															      $query->orWhere("venta." . $column,'like',"%$word%");
                     															   }
                     												});
                     							}
                     				 })
                              ->where('id_users','=',$request->iduser)
-                             ->whereBetween('id', [$request->start + 1, $request->start + $request->length])->orderBy($orderBy, $oder)->get();
+                             /*->whereBetween('id', [$request->start + 1, $request->start + $request->length])*/
+                             ->orderBy($orderBy, $oder)->get();
 
         $draw = isset($request->draw) ? $request->draw : 0;
 
-        if(!empty($compra)){
+        $arraydatos = array();
+        $registrosget  = array();
+
+        $start = $request->start; //$request->start;
+        $end = $request->start + $request->length; //$request->length;
+
+        // registros a obtener
+        for ($i=$start; $i < $end; $i++) {
+          array_push($registrosget,intval($i));
+        }
+
+        foreach ($venta as $key => $v) {
+          if(in_array($key,$registrosget)){
+            array_push($arraydatos,$v);
+          }
+        }
+
+        if(!empty($arraydatos)){
           $result['code'] = 200;
           $result['status'] = 'success';
           $result['draw'] = $draw;
-          $result['recordsTotal']=count($compra);
-          $result['recordsFiltered']=count($compra);
-          $result['data'] = $compra;
+          $result['recordsTotal']= count($venta);
+          $result['recordsFiltered']= count($venta);//count($arraydatos);
+          $result['data'] = $arraydatos;
         } else{
           $result['code'] = 400;
           $result['status'] = 'error';
@@ -305,6 +323,35 @@ class VentaController extends Controller
       $result['msm'] = 'Error al guardar la venta';
     }
     return Response::json($result);
+  }
+  public function getdataventaall(Request $request){
+    try {
+      $exists = VentaModel::whereNull('deleted_at')->count();
+
+      if($exists > 0){
+        $ventas = VentaModel::leftjoin('typepay','venta.id_pago','=','typepay.id')
+                            ->leftjoin('cliente','venta.id_cliente','=','cliente.id')
+                            ->leftjoin('users','venta.id_users','=','users.id')
+                            ->select('venta.id','venta.factura','venta.precio_total','typepay.name as pago','cliente.nombre as cliente','users.name as usuario')
+                            ->whereNull('venta.deleted_at')
+                            ->get();
+
+        $result['code'] = 200;
+        $result['status'] = 'success';
+        $result['data'] = $ventas;
+
+      } else{
+        $result['code'] = 202;
+        $result['status'] = 'warning';
+        $result['data'] = array();
+      }
+
+    } catch (\Exception $e) {
+      $result['code'] = 500;
+      $result['status'] = 'error';
+      $result['msm'] = 'Error al recuperar la informacion de las ventas';
+    }
+    return $result;
   }
 
   public function generarCodigo($longitud, $codigoventa=0, $hoy){

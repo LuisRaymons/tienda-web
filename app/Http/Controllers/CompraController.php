@@ -542,7 +542,33 @@ class CompraController extends Controller
     }
     return Response::json($result);
   }
+  public function getdatacompraall(Request $request){
+    try {
+      $exists = CompraModel::whereNull('deleted_at')->count();
 
+      if($exists > 0){
+        $compra = CompraModel::join('promotor','compra.id_promotor','=','promotor.id')
+                             ->join('producto','compra.id_producto','=','producto.id')
+                             ->select('compra.id','compra.folio','compra.cantidad_stock','compra.precio_total','compra.img','promotor.nombre as promotor','producto.nombre as producto')
+                             ->whereNull('compra.deleted_at')
+                             ->get();
+
+        $result['code'] = 200;
+        $result['status'] = 'success';
+        $result['data'] = $compra;
+      } else{
+        $result['code'] = 202;
+        $result['status'] = 'warning';
+        $result['data'] = array();
+      }
+
+    } catch (\Exception $e) {
+      $result['code'] = 500;
+      $result['status'] = 'error';
+      $result['msm'] = 'Error al recuperar la informacion de las compras';
+    }
+    return $result;
+  }
   /*---------------------------------Paginado---------------------------------*/
   private function paginainicio($pag,$paginasize){
     if ($pag <= 0) {

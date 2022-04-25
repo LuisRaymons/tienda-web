@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PrecioProductoController;
 use App\Http\Controllers\PromotorController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\VentaDetailController;
 use App\Http\Controllers\Dashboardcontroller;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -97,6 +98,9 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/venta/get/table', [VentaController::class, 'getventasData'])->name('ventastable');
   Route::post('/venta/new', [VentaController::class, 'store'])->name('ventastore');
 
+  // Detalle de venta
+  Route::get('/venta/detalle/{id}', [VentaDetailController::class, 'detailventabyid'])->name('detailventabyid');
+
   // Precio Producto
   Route::get('/precios', [PrecioProductoController::class, 'index'])->name('ventaindex');
   Route::post('/producto/precios/new', [PrecioProductoController::class, 'store'])->name('precioproductstore');
@@ -104,7 +108,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::delete('/producto/precios/delete/{id}', [PrecioProductoController::class, 'destroy'])->name('precioproductdestroy');
   Route::get('producto/precio/table', [PrecioProductoController::class, 'getProductoPriceData'])->name('getProductoPriceData');
   Route::get('producto/price/missing', [PrecioProductoController::class, 'getProductPriceMissing'])->name('getProductPriceMissing');
-  Route::get('producto/precio/get/{id}',[PrecioProductoController::class, 'getprecioproductbyid'])->name('getprecioproductbyid');
+  Route::post('producto/precio/get/one',[PrecioProductoController::class, 'getprecioproductbyid'])->name('getprecioproductbyid');
 
   Route::get('producto/price/exists',[PrecioProductoController::class, 'getProductPriceExists'])->name('getProductPriceExists');
 

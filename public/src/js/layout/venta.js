@@ -1,5 +1,6 @@
 let user = $("#iduser").val();
 let typeuser = $("#typeuser").val();
+let tokenuser = $("#token_user").val();
 let products =  new Array();
 let pagototal = 0.00;
 let pagototalefectivo  = 0.00;
@@ -43,6 +44,7 @@ const tabledoading = () =>{
   		    serverSide: true,
           stateSave: true,
           paging: true,
+          "paging": true,
           lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, 100, "All"] ],
           pagingType: "full_numbers",
           pageLength: 25,
@@ -63,7 +65,10 @@ const tabledoading = () =>{
                  var permisouser = userconsultarrol();
 
                  if(permisouser.typeuser == 'Administrador'){
-                   return '<button type="button" id="ButtonEditar" onclick = "editarfunction('+data+')" class="editar edit-modal btn btn-warning botonEditar"><span class="fa fa-edit"></span><span class="hidden-xs"> Editar</span></button><span>     </span>';
+                          return '<button type="button" id="ButtonEditar" onclick = "detailfunction('+data+')" class="editar edit-modal btn btn-success botonEditar">'+
+                                    '<span class="fa fa-ballot"></span><span class="hidden-xs"> Detalle</span></button><span></span>' +
+                                 '<button type="button" id="Buttoneditar" onclick = "editarfunction('+data+')" class="edit edit-modal btn btn-warning botonEditar">'+
+                                    '<span class="fa fa-edit"></span><span class="hidden-xs"> editar</span></button>';
                  } else{
                    return '<label>No aplica</label>';
                  }
@@ -177,7 +182,6 @@ const loadingtypepay = (type,cadena) =>{
      }
   })
 }
-
 const addproduct = (id,nombre,cantidad) =>{
   products.push({"id":id,"name":nombre,"acount":cantidad});
 
@@ -195,33 +199,54 @@ const buildtabledetail = () => {
 
   if(products.length > 0){
     products.forEach((product, i) => {
+      console.log(product);
+      var formprecio = new FormData();
+          formprecio.append('api_token',tokenuser);
+          formprecio.append('id',product.id);
+
       $.ajax({
-        url:"producto/precio/" + product.id,
-        type:"GET",
+        url:"producto/precio/get/one",
+        type:"POST",
+        processData: false,
+        contentType: false,
+        dataType: "json",
+        data:formprecio,
         success:function(precio){
 
           if(precio.code == 200){
             var data = precio.data;
             var preciototal = 0;
 
-            preciototal = (data.precio) * (product.acount);
-            pagototal = preciototal;
+            if(data != undefined){
+              preciototal = (data.precio) * (product.acount);
+              pagototal = preciototal;
 
-            $("#detailventabody").empty();
-            total = total + preciototal;
-            tr += "<tr>";
-            tr += "<td width='30%'> <input type='number' class='form-control'  value='" + product.acount +"' onchange = 'cambiaitemsproduct(this.value, " + product.id + ")'></td>";
-            tr += "<td width='30%'>" + product.name +"</td>";
-            tr += "<td width='30%'>" + "$" + preciototal.toFixed(2) +"</td>";
-            tr += "<td width='20%'>" +
-                    "<i title='Eliminar producto' class='far fa-trash-alt' onclick='deleteproductdetail("+  product.id + ")' style='cursor: pointer;'></i>" +
-                  "</td>"
-            tr += "</tr>";
+              $("#detailventabody").empty();
+              total = total + preciototal;
+              tr += "<tr>";
+              tr += "<td width='30%'> <input type='number' class='form-control'  value='" + product.acount +"' onchange = 'cambiaitemsproduct(this.value, " + product.id + ")'></td>";
+              tr += "<td width='30%'>" + product.name +"</td>";
+              tr += "<td width='30%'>" + "$" + preciototal.toFixed(2) +"</td>";
+              tr += "<td width='20%'>" +
+                      "<i title='Eliminar producto' class='far fa-trash-alt' onclick='deleteproductdetail("+  product.id + ")' style='cursor: pointer;'></i>" +
+                    "</td>"
+              tr += "</tr>";
 
-            $("#detailventabody").append(tr);
-            $("#precioTotaldetail").css("display","block");
-            $("#precioTotaldetail").text("$" + total.toFixed(2));
-            $("#pagototalcobrar").val(total.toFixed(2)); // pago en efectivo
+              $("#detailventabody").append(tr);
+              $("#precioTotaldetail").css("display","block");
+              $("#precioTotaldetail").text("$" + total.toFixed(2));
+              $("#pagototalcobrar").val(total.toFixed(2)); // pago en efectivo
+
+            } else{
+              Swal.fire({
+                position: 'top-end',
+                icon: 'warning',
+                title: 'El precio de este producto no se encuentra en la base de datos',
+                text:'Llame a su administrador, para agregar el precio de este producto',
+                showConfirmButton: false,
+                timer: 5000
+              });
+            }
           }
         },
         error:function(e){
@@ -348,6 +373,116 @@ const insertVenta = ()  => {
       timer: 1500
     });
   }
+}
+const createticketcompra = () =>{
+  console.log("------------------Creando ticket de compra------------------");
+}
+const userconsultarrol = () => {
+  var arrayuser = new Array({
+    "user" : user,
+    "typeuser" : typeuser
+  });
+  return arrayuser[0];
+}
+const detailfunction = (id) =>{
+  $.ajax({
+    url:"venta/detalle/" + id,
+    beforeSend:function(e){
+      loadinproccess(true,'Cargando informacion del cliente');
+    },
+    success:function(venta){
+      if(venta.code == 200){
+        var data = venta.data;
+
+        var tableheader = "";
+        $("#tablecontainer").empty();
+
+        $("#facturaid").text(data[0]['factura']);
+        $("#clienteventa").text(data[0]['cliente']);
+        $("#userventa").text(data[0]['usuario']);
+        $("#pagoventa").text(data[0]['tipopago'])
+
+        if(data.length > 0){
+          tableheader += "<table WIDTH='100%' BORDER><thead><tr BGCOLOR='blue' id='idtableventadetail'><th>cantidad</th><th>producto</th></tr></thead><tbody>";
+          data.forEach((v, i) => {
+            tableheader += "<tr class='center-text'>";
+            tableheader += "<td>" + v['cantidad'] + "</td>";
+            tableheader += "<td>" + v['producto'] + "</td>";
+            tableheader += "</tr>";
+          });
+          tableheader += "</tbody></table>";
+          $("#tablecontainer").append(tableheader);
+        }
+
+        $("#staticmodaldetalleventa").modal("show");
+      }
+    },
+    error:function(e){
+      console.error("error en el proceso de consulta de venta");
+    },
+    complete:function(c){
+      loadinproccess(false,'');
+    }
+  });
+}
+const editarfunction = (id) =>{
+  $.ajax({
+    url:"venta/detalle/" + id,
+    beforeSend:function(e){
+      loadinproccess(true,'Cargando informacion del cliente');
+    },
+    success:function(venta){
+      if(venta.code == 200){
+        var data = venta.data;
+        loadingclient($("#clientitemsedit"),"Seleccione cliente");
+        loadingproducts($("#productitemsedit"),"Seleccione un producto");
+        loadingtypepay($("#typepayedit"),"Seleccione el metodo de pago");
+
+        var table = "";
+        data.forEach((v, i) => {
+          console.log(v);
+          table += "<tr>";
+          //tr += "<td width='30%'> <input type='number' class='form-control'  value='" + product.acount +"' onchange = 'cambiaitemsproduct(this.value, " + product.id + ")'></td>";
+          //table += "<td width='30%'>" + v['cantidad'] + "</td>";
+          table += "<td width='30%'><input type='number' class='form-control'  value='" + v['cantidad'] +"' onchange = 'cambiaitemsproduct(this.value, " + v['productoid'] + ")'></td>";
+          table += "<td>" + v['producto'] + "</td>";
+          table += "<td>" + Math.round(v['precio']) + "</td>";
+          table += "<td>" + "<p>Eliminar producto</p>" + "</td>";
+          table += "<tr>";
+        });
+        $("#detailventabodyedit").append(table);
+
+        $("#staticmodaleditventa").modal("show");
+      }
+    },
+    error:function(e){
+      console.error("error en el proceso de consulta de venta");
+    },
+    complete:function(c){
+      loadinproccess(false,'');
+    }
+  });
+}
+
+// loading
+const loadinproccess = (valor, cadena) => {
+    let val = valor;
+    let timerInterval;
+    let aux = 50000;
+    if (val == false) {
+        aux = 100;
+    }
+    var spinner = '<div class="spinner-border" style="width: 3rem;height:3rem;color:#f39c12;" role="status"><span class = "sr-only" > Loading... < /span> </div>';
+    Swal.fire({
+        html: "<h5>Espere un momento </h5><h6>" + cadena + "</h6><br>" + spinner,
+        timer: aux,
+        width: 300,
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    });
 }
 
 $("#addproductventa").click(function(e){
@@ -521,37 +656,9 @@ $("#idpago").change(function(e){
     $("#btncobrarventa").prop("disabled",false);
   }
 });
-
-
-const createticketcompra = () =>{
-  console.log("------------------Creando ticket de compra------------------");
-}
-const userconsultarrol = () => {
-  var arrayuser = new Array({
-    "user" : user,
-    "typeuser" : typeuser
-  });
-  return arrayuser[0];
-}
-
-
-// loading
-const loadinproccess = (valor, cadena) => {
-    let val = valor;
-    let timerInterval;
-    let aux = 50000;
-    if (val == false) {
-        aux = 100;
-    }
-    var spinner = '<div class="spinner-border" style="width: 3rem;height:3rem;color:#f39c12;" role="status"><span class = "sr-only" > Loading... < /span> </div>';
-    Swal.fire({
-        html: "<h5>Espere un momento </h5><h6>" + cadena + "</h6><br>" + spinner,
-        timer: aux,
-        width: 300,
-        allowOutsideClick: false,
-        showConfirmButton: false,
-        onClose: () => {
-            clearInterval(timerInterval)
-        }
-    });
-}
+$("#cancelventa").click(function(e){
+  products =  new Array();
+  $("#detailventabody").empty();
+  pagototal = 0.00;
+  buildtabledetail();
+});

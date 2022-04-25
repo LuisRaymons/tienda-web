@@ -241,6 +241,30 @@ class AlmacenController extends Controller
       return Response::json($result);
 
     }
+    public function getalmacenall(request $request){
+      try {
+        $exists = AlmacenModel::whereNull('deleted_at')->count();
+        if($exists > 0){
+          $result['code'] = 200;
+          $result['status'] = 'success';
+          $result['data'] = AlmacenModel::join('users','almacen.id_user','=','users.id')
+                                        ->join('producto','almacen.id_producto','=','producto.id')
+                                        ->select('almacen.id','almacen.entrada','almacen.salida','almacen.stock','users.name as usuario','producto.nombre as producto')
+                                        ->whereNull('almacen.deleted_at')
+                                        ->get();
+        } else{
+          $result['code'] = 202;
+          $result['status'] = 'warning';
+          $result['data'] = array();
+        }
+      } catch (\Exception $e) {
+        $result['code'] = 500;
+        $result['status'] = 'error';
+        $result['msm'] = 'Error al recuperar la informacion de almacen';
+      }
+      return $result;
+
+    }
     /*---------------------------------Paginado---------------------------------*/
     private function paginainicio($pag,$paginasize){
       if ($pag <= 0) {

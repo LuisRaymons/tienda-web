@@ -1,0 +1,11 @@
+#facturaid,#clienteventa,#userventa,#pagoventa{
+  color:red;
+}
+#idtableventadetail{
+  color:white;
+  text-align: center;
+}
+
+.center-text{
+  text-align: center;
+}

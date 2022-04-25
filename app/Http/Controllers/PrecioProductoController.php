@@ -244,17 +244,17 @@ class PrecioProductoController extends Controller
       }
       return Response::json($result);
     }
-    public function getprecioproductbyid($id){
+    public function getprecioproductbyid(Request $request){
       try {
-        $exits = PrecioProductoModel::whereNull('deleted_at')->where('id','=',$id)->count();
+        $exits = PrecioProductoModel::whereNull('deleted_at')->where('id','=',$request->id)->count();
 
         if($exits > 0){
-          $seleccionado = PrecioProductoModel::whereNull('deleted_at')->where('id','=',$id)->first();
+          $seleccionado = PrecioProductoModel::whereNull('deleted_at')->where('id','=',$request->id)->first();
 
           $seleccionado = PrecioProductoModel::join('producto','productoprecio.id_product','=','producto.id')
                                          ->select('productoprecio.id as idproductprecio','productoprecio.precio','productoprecio.id_product','producto.id','producto.nombre')
                                          ->whereNull('productoprecio.deleted_at')
-                                         ->where('productoprecio.id','=',$id)
+                                         ->where('productoprecio.id','=',$request->id)
                                          ->first();
 
           $result['code'] = 200;
@@ -494,6 +494,31 @@ class PrecioProductoController extends Controller
         $result['msm'] = 'Error al eliminar el precio del producto';
       }
       return Response::json($result);
+    }
+    public function getprodutprecioall(Request $request){
+      try {
+        $exists = PrecioProductoModel::whereNull('deleted_at')->count();
+
+        if($exists > 0){
+          $precios = PrecioProductoModel::join('producto','productoprecio.id_product','=','producto.id')
+                                        ->select('productoprecio.id','productoprecio.precio','producto.nombre as producto')
+                                        ->whereNull('productoprecio.deleted_at')->get();
+
+          $result['code'] = 200;
+          $result['status'] = 'success';
+          $result['data'] = $precios;
+        } else{
+          $result['code'] = 202;
+          $result['status'] = 'warning';
+          $result['data'] = array();
+        }
+
+      } catch (\Exception $e) {
+        $result['code'] = 500;
+        $result['status'] = 'error';
+        $result['msm'] = 'Error al recuperar la informacion de los precios de los productos';
+      }
+      return $result;
     }
     /*---------------------------------Paginado---------------------------------*/
     private function paginainicio($pag,$paginasize){

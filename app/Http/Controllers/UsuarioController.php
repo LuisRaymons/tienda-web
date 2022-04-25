@@ -514,6 +514,28 @@ class UsuarioController extends Controller
       }
       return Response::json($result);
     }
+    public function getdatauserall(Request $request){
+      try {
+        $countregister = User::whereNull('deleted_at')->count();
+
+        if($countregister > 0){
+          $result['code'] = 200;
+          $result['status'] = 'warning';
+          $result['data'] = User::whereNull('deleted_at')->select('id','name','email','img','type','api_token')->get();
+        } else{
+          $result['code'] = 202;
+          $result['status'] = 'warning';
+          $result['data'] = array();
+        }
+
+      } catch (\Exception $e) {
+        $result['code'] = 500;
+        $result['status'] = 'error';
+        $result['msm'] = 'Error al recuperar la informacion de los usuarios';
+      }
+      return Response::json($result);
+
+    }
     /*---------------------------------Paginado---------------------------------*/
     private function paginainicio($pag,$paginasize){
       if ($pag <= 0) {
