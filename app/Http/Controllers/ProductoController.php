@@ -485,8 +485,9 @@ class ProductoController extends Controller
     try {
       $exist = ProductoModel::whereNull('deleted_at')->count();
       if($exist > 0){
-        $products = ProductoModel::whereNull('deleted_at')
-                                 ->select('id','nombre','descripcion','precioPorKilo','img','id_categoria')
+        $products = ProductoModel::join('categoria_producto','producto.id_categoria','=','categoria_producto.id')
+                                 ->whereNull('producto.deleted_at')
+                                 ->select('producto.id','producto.nombre','producto.descripcion','producto.precioPorKilo','producto.img','categoria_producto.nombre as categoria')
                                  ->get();
 
         $result['code'] = 200;

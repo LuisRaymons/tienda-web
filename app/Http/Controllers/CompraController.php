@@ -472,8 +472,8 @@ class CompraController extends Controller
           $almacen->updated_at = date('Y-m-d H:m:s');
           $almacen->save();
 
-          $promotorexist = ProductoModel::whereNull('deleted_at')->where('nombre','=',$request->producto)->first();
-          $productexits = PromotorModel::whereNull('deleted_at')->where('nombre','=',$request->promotor)->first();
+          $productexits = ProductoModel::whereNull('deleted_at')->where('nombre','=',$request->producto)->first();
+          $promotorexist = PromotorModel::whereNull('deleted_at')->where('nombre','=',$request->promotor)->first();
 
           $compra = CompraModel::find($request->id);
           $compra->cantidad_stock = isset($request->stock) ? $request->stock : $compra->cantidad_stock;
