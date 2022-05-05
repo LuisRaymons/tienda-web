@@ -50,7 +50,7 @@ class AllSeeder extends Seeder
                   'id_cliente' => $cliente[0]->id,
                   'id_users' => $user[0]->id
                 ])->each(function($venta) use($categoria, $user, $cliente, $promotor,$producto){
-                  VentaDetailModel::factory()->count(2)->create([
+                  VentaDetailModel::factory()->count(1)->create([
                     'id_venta' => $venta->id,
                     'id_producto' => $producto->id
                   ]);

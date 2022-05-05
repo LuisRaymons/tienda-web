@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.0/css/dataTables.dateTime.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/colreorder/1.5.4/css/colReorder.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"/>
+    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="src/plugging/alertify/alertify.default.css">
 
     <link rel="stylesheet" href="src/plugging/MaterialDesign/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="src/css/style.css">
@@ -157,7 +159,12 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
       <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
       <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+      <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="src/plugging/alertify/alertify.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js">
+
+      </script>
       <script src="src/js/adminlte.js" charset="utf-8"></script>
       @yield('js')
   </body>

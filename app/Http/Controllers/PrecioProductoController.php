@@ -261,7 +261,7 @@ class PrecioProductoController extends Controller
           $result['status'] = 'success';
           $result['data'] = $seleccionado;
         } else{
-          $result['code'] = 200;
+          $result['code'] = 202;
           $result['status'] = 'success';
           $result['msm'] = 'El producto de precio seleccionado no se encuentra en la base de datos';
         }

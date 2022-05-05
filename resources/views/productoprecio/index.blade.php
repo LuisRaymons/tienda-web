@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('css')
-  <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+
 @endsection
 
 @section('content')
@@ -14,6 +14,7 @@
 <div class="tab-content" id="nav-tabContent">
   <input type="hidden" name="iduser" id="iduser" value="{{Auth::user()->id}}">
   <input type="hidden" name="typeuser" id="typeuser" value="{{Auth::user()->type}}">
+  <input type="hidden" name="token_user" id="token_user" value="{{Auth::user()->api_token}}"
   <input type="hidden" name="emailuser" id="emailuser" value="{{Auth::user()->email}}">
   <div class="tab-pane fade show active" id="nav-table-target" role="tabpanel" aria-labelledby="nav-table">
     <table id="producto-precio-table" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
@@ -84,6 +85,5 @@
 @endsection
 
 @section('js')
-  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   <script src="src/js/layout/producto-price.js"></script>
 @endsection

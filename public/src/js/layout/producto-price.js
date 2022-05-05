@@ -1,6 +1,7 @@
 let user = $("#iduser").val();
 let typeuser = $("#typeuser").val();
 let emailuser = $("#emailuser").val();
+let tokenUser = $("#token_user").val();
 var idproductos = 0;
 
 $(document).ready(function(e){
@@ -332,9 +333,13 @@ $("#btneditsaveproductprecio").click(function(e){
 });
 const editarproductoprecio = (id) =>{
 
+  formdata = new FormData();
+  formdata.append('id',id);
+
   $.ajax({
-    url: "producto/precio/get/" + id,
-    type: "GET",
+    url: "producto/precio/get/one",
+    type: "POST",
+    data: formdata,
     processData: false,
     contentType: false,
     beforeSend:function(e){
@@ -347,6 +352,15 @@ const editarproductoprecio = (id) =>{
         $("#productedit").val(data['nombre']);
         $("#precioedit").val(data['precio']);
         idproductos = data['idproductprecio'];
+      } else{
+
+        Swal.fire({
+          position: 'top-end',
+          icon: precioproduct.status,
+          title: precioproduct.msm,
+          showConfirmButton: false,
+          timer: 2000
+        });
       }
 
     }, error:function(e){
@@ -434,9 +448,11 @@ const loadinproccess = (valor, cadena) => {
         timer: aux,
         width: 300,
         allowOutsideClick: false,
-        showConfirmButton: false,
+        showConfirmButton: false
+        /*
         onClose: () => {
             clearInterval(timerInterval)
         }
+        */
     });
 }

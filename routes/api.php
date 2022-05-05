@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PrecioProductoController;
 use App\Http\Controllers\PromotorController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\VentaDetailController;
 use App\Http\Controllers\Dashboardcontroller;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -95,6 +96,11 @@ Route::group(['middleware' => ['authapi']], function () {
     Route::post('/total/mes',[Dashboardcontroller::class, 'getventasbymestotalApi'])->name('getventasbymestotalApi');
     Route::post('/total/mes/{id}',[Dashboardcontroller::class, 'getventasbyusertotalApi'])->name('getventasbyusertotalApi');
   });
+
+  Route::prefix('/venta/detalle')->group(function(){
+    Route::post('/one', [VentaDetailController::class, 'detailventabyidApi'])->name('detailventabyidApi');
+  });
+
 });
 
 // crear un middleware en para tomar el token
