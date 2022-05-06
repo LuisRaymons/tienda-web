@@ -165,7 +165,7 @@ const loadingproduct = (type,cadena) =>{
      width: '100%',
      theme: "classic",
      ajax: {
-        url: 'productos',
+        url: 'producto/all',
         dataType: 'json',
         type: 'GET',
         processResults({
@@ -189,7 +189,7 @@ const loadingpromotor = (type, cadena) =>{
      width: '100%',
      theme: "classic",
      ajax: {
-        url: 'promotores',
+        url: 'promotor/all',
         dataType: 'json',
         type: 'GET',
         processResults({

@@ -116,7 +116,7 @@ const loadingclient = (type,cadena) =>{
      width: '100%',
      theme: "classic",
      ajax: {
-        url: 'clientes',
+        url: 'cliente/all',
         dataType: 'json',
         type: 'GET',
         processResults({
@@ -140,7 +140,7 @@ const loadingproducts = (type,cadena) => {
      width: '100%',
      theme: "classic",
      ajax: {
-        url: 'productos',
+        url: 'producto/all',
         dataType: 'json',
         type: 'GET',
         processResults({
@@ -205,7 +205,7 @@ const buildtabledetail = () => {
           formprecio.append('id',product.id);
 
       $.ajax({
-        url:"producto/precio/get/one",
+        url:"productoprecios/get/one",
         type:"POST",
         processData: false,
         contentType: false,
@@ -575,7 +575,7 @@ $("#productitems").change(function(e){
   var productselect = $("#productitems").val();
 
   $.ajax({
-    url:"product/existencia/" + productselect,
+    url:"producto/existencia/" + productselect,
     type:"GET",
     success:function(product){
       if(product.code == 200){

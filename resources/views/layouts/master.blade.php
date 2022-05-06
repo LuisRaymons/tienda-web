@@ -123,7 +123,7 @@
                 </li>
 
                 <li class="nav-item {{(Auth::user()->type == 'Administrador')   ? '' : 'showcontentuser' }}">
-                  <a href="precios" class="nav-link">
+                  <a href="productoprecios" class="nav-link">
                     <i class="nav-icon mdi mdi-currency-usd-off"></i>
                     <p>Precio Producto<!-- <span class="right badge badge-danger">New</span> --></p>
                   </a>
@@ -162,9 +162,7 @@
       <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="src/plugging/alertify/alertify.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js">
-
-      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
       <script src="src/js/adminlte.js" charset="utf-8"></script>
       @yield('js')
   </body>

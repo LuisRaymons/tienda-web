@@ -41,7 +41,7 @@ const tabledoading = () =>{
           pageLength: 25,
           dom: 'lfrtipB',
           ajax: {
-              url: "producto/precio/table",
+              url: "productoprecios/table",
               type: "GET"
           },
          serverSide: true,
@@ -270,7 +270,7 @@ $("#btneditsaveproductprecio").click(function(e){
         dataproduct.append("id",idproductos);
         dataproduct.append("precioproduct",$("#precioedit").val());
         $.ajax({
-          url: "producto/precios/update",
+          url: "productoprecios/update",
           type: "POST",
           data:dataproduct,
           processData: false,
@@ -337,7 +337,7 @@ const editarproductoprecio = (id) =>{
   formdata.append('id',id);
 
   $.ajax({
-    url: "producto/precio/get/one",
+    url: "productoprecios/get/one",
     type: "POST",
     data: formdata,
     processData: false,
@@ -377,15 +377,16 @@ const deleteproductoprecio = (id) =>{
     title: 'Ingresa tu correo',
     input: 'email',
     inputLabel: 'Para continuar con la eliminacion ingresa tu correo',
-    inputPlaceholder: 'Enter your email address'
+    inputPlaceholder: 'Ingresa tu correo electronico'
   });
+  console.log(emailedit);
 
-  if (emailedit) {
+  if (emailedit != '') {
     if(emailedit == emailuser){
       var dataproduct = new FormData();
       dataproduct.append("id",id);
       $.ajax({
-        url: "producto/precios/delete/" + id,
+        url: "productoprecios/delete/" + id,
         type: "delete",
         data:dataproduct,
         processData: false,
