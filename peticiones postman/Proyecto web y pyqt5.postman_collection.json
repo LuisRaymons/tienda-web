@@ -1,0 +1,3144 @@
+{
+	"info": {
+		"_postman_id": "7ebf4322-7416-4f5b-8a8d-ed35cc72f9f3",
+		"name": "Proyecto web y pyqt5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PYT5",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "LoginUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"isabell48@example.net\",\r\n    \"password\":\"Admin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/get/login/user",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"login",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Almacen",
+					"item": [
+						{
+							"name": "AlmacenDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/almacen",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"almacen"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AlmacenStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imgFolio",
+											"type": "file",
+											"src": "/C:/Users/lvalencia/Pictures/faltante de system nuevo.PNG"
+										},
+										{
+											"key": "entrada",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "user",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "producto",
+											"value": "papas",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/almacen",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"almacen"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AlmacenUpdate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "entradasEdit",
+											"value": "23",
+											"type": "text"
+										},
+										{
+											"key": "userEdit",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "productEdit",
+											"value": "papas",
+											"type": "text"
+										},
+										{
+											"key": "imgEdit",
+											"type": "file",
+											"src": "/C:/Users/lvalencia/Pictures/help mitsy.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/almacen",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"almacen"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AlmacenDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/almacen",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"almacen"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AlmacenById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/almacen/2",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"almacen",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AlmacenDatatable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/almacen/datatable?draw=1&columns%5B0%5D%5Bdata%5D=id&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=folio&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=imgFolio&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=entrada&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=salida&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=true&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B5%5D%5Bdata%5D=stock&columns%5B5%5D%5Bname%5D=&columns%5B5%5D%5Bsearchable%5D=true&columns%5B5%5D%5Borderable%5D=true&columns%5B5%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B5%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B6%5D%5Bdata%5D=usuario&columns%5B6%5D%5Bname%5D=&columns%5B6%5D%5Bsearchable%5D=true&columns%5B6%5D%5Borderable%5D=true&columns%5B6%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B6%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B7%5D%5Bdata%5D=producto&columns%5B7%5D%5Bname%5D=&columns%5B7%5D%5Bsearchable%5D=true&columns%5B7%5D%5Borderable%5D=true&columns%5B7%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B7%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B8%5D%5Bdata%5D=id&columns%5B8%5D%5Bname%5D=&columns%5B8%5D%5Bsearchable%5D=true&columns%5B8%5D%5Borderable%5D=true&columns%5B8%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B8%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=25&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1627242354136",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"almacen",
+										"datatable"
+									],
+									"query": [
+										{
+											"key": "draw",
+											"value": "1"
+										},
+										{
+											"key": "columns%5B0%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B0%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B1%5D%5Bdata%5D",
+											"value": "folio"
+										},
+										{
+											"key": "columns%5B1%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B2%5D%5Bdata%5D",
+											"value": "imgFolio"
+										},
+										{
+											"key": "columns%5B2%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B3%5D%5Bdata%5D",
+											"value": "entrada"
+										},
+										{
+											"key": "columns%5B3%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B4%5D%5Bdata%5D",
+											"value": "salida"
+										},
+										{
+											"key": "columns%5B4%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B5%5D%5Bdata%5D",
+											"value": "stock"
+										},
+										{
+											"key": "columns%5B5%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B6%5D%5Bdata%5D",
+											"value": "usuario"
+										},
+										{
+											"key": "columns%5B6%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B7%5D%5Bdata%5D",
+											"value": "producto"
+										},
+										{
+											"key": "columns%5B7%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B8%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B8%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B8%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B8%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B8%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B8%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "order%5B0%5D%5Bcolumn%5D",
+											"value": "0"
+										},
+										{
+											"key": "order%5B0%5D%5Bdir%5D",
+											"value": "asc"
+										},
+										{
+											"key": "start",
+											"value": "0"
+										},
+										{
+											"key": "length",
+											"value": "25"
+										},
+										{
+											"key": "search%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "search%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "_",
+											"value": "1627242354136"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cliente",
+					"item": [
+						{
+							"name": "ClienteDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/cliente/all",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"cliente",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ClienteStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"nombre\": \"jose\", \r\n\t\"apellidos\": \"Ramirez\", \r\n\t\"telefono\": \"242343232432\", \r\n\t\"direccion\": \"Lomas del sol\", \r\n\t\"colonia\": \"Jardines del Country 2a. Seccion\", \r\n\t\"municipio\": \"Guadalajara\", \r\n\t\"estado\": \"Jalisco\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/cliente",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"cliente"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ClienteUpdate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":149,\r\n    \"nombre\":\"Luis Ramon\",\r\n    \"apellidos\":\"Valencia\",\r\n    \"telefono\":\"2222232233\", \r\n    \"direccion\":\"lomas del sol\",\r\n    \"colonia\":\"Jardines del Country\",\r\n    \"municipio\":\"Guadalajara\",\r\n    \"estado\":\"Jalisco\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/cliente",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"cliente"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ClienteDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/cliente",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"cliente"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ClientById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/cliente/6",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"cliente",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ClientDatatable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/cliente/datatable?draw=1&columns%5B0%5D%5Bdata%5D=id&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=nombre&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=apellidos&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=telefono&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=direccion&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=true&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B5%5D%5Bdata%5D=cp&columns%5B5%5D%5Bname%5D=&columns%5B5%5D%5Bsearchable%5D=true&columns%5B5%5D%5Borderable%5D=true&columns%5B5%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B5%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B6%5D%5Bdata%5D=colonia&columns%5B6%5D%5Bname%5D=&columns%5B6%5D%5Bsearchable%5D=true&columns%5B6%5D%5Borderable%5D=true&columns%5B6%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B6%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B7%5D%5Bdata%5D=id&columns%5B7%5D%5Bname%5D=&columns%5B7%5D%5Bsearchable%5D=true&columns%5B7%5D%5Borderable%5D=true&columns%5B7%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B7%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=25&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1627242311164",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"cliente",
+										"datatable"
+									],
+									"query": [
+										{
+											"key": "draw",
+											"value": "1"
+										},
+										{
+											"key": "columns%5B0%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B0%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B1%5D%5Bdata%5D",
+											"value": "nombre"
+										},
+										{
+											"key": "columns%5B1%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B2%5D%5Bdata%5D",
+											"value": "apellidos"
+										},
+										{
+											"key": "columns%5B2%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B3%5D%5Bdata%5D",
+											"value": "telefono"
+										},
+										{
+											"key": "columns%5B3%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B4%5D%5Bdata%5D",
+											"value": "direccion"
+										},
+										{
+											"key": "columns%5B4%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B5%5D%5Bdata%5D",
+											"value": "cp"
+										},
+										{
+											"key": "columns%5B5%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B6%5D%5Bdata%5D",
+											"value": "colonia"
+										},
+										{
+											"key": "columns%5B6%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B7%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B7%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "order%5B0%5D%5Bcolumn%5D",
+											"value": "0"
+										},
+										{
+											"key": "order%5B0%5D%5Bdir%5D",
+											"value": "asc"
+										},
+										{
+											"key": "start",
+											"value": "0"
+										},
+										{
+											"key": "length",
+											"value": "25"
+										},
+										{
+											"key": "search%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "search%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "_",
+											"value": "1627242311164"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Producto",
+					"item": [
+						{
+							"name": "ProductoDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/producto",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"producto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ProductoStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\":\"Penquetis\",\r\n    \"descripcion\":\"Caramelos de chocolate\",\r\n    \"costo\":10.40,\r\n    \"precioPorKilo\":\"false\",\r\n    \"caducidad\":\"\",\r\n    \"img\":\"\",\r\n    \"categoria\": \"Panes de molde\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/producto",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"producto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ProductoUpdate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1,\r\n    \"nombre\":\"Penquetisss\",\r\n    \"descripcion\":\"Caramelos de chocolate\",\r\n    \"costo\":10.40,\r\n    \"precioPorKilo\":\"false\",\r\n    \"img\":\"\",\r\n    \"categoria\": \"lacteos\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/producto",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"producto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ProductoDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/producto",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"producto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ProductUltimo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/producto/latest",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"producto",
+										"latest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ProductById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/producto/3",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"producto",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ProductDatatable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/producto/datatable?draw=1&columns%5B0%5D%5Bdata%5D=id&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=nombre&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=descripcion&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=costo&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=precioPorKilo&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=true&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B5%5D%5Bdata%5D=img&columns%5B5%5D%5Bname%5D=&columns%5B5%5D%5Bsearchable%5D=true&columns%5B5%5D%5Borderable%5D=true&columns%5B5%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B5%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B6%5D%5Bdata%5D=categoria&columns%5B6%5D%5Bname%5D=&columns%5B6%5D%5Bsearchable%5D=true&columns%5B6%5D%5Borderable%5D=true&columns%5B6%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B6%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B7%5D%5Bdata%5D=id&columns%5B7%5D%5Bname%5D=&columns%5B7%5D%5Bsearchable%5D=true&columns%5B7%5D%5Borderable%5D=true&columns%5B7%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B7%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=25&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1627242267463",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"producto",
+										"datatable"
+									],
+									"query": [
+										{
+											"key": "draw",
+											"value": "1"
+										},
+										{
+											"key": "columns%5B0%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B0%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B1%5D%5Bdata%5D",
+											"value": "nombre"
+										},
+										{
+											"key": "columns%5B1%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B2%5D%5Bdata%5D",
+											"value": "descripcion"
+										},
+										{
+											"key": "columns%5B2%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B3%5D%5Bdata%5D",
+											"value": "costo"
+										},
+										{
+											"key": "columns%5B3%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B4%5D%5Bdata%5D",
+											"value": "precioPorKilo"
+										},
+										{
+											"key": "columns%5B4%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B5%5D%5Bdata%5D",
+											"value": "img"
+										},
+										{
+											"key": "columns%5B5%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B6%5D%5Bdata%5D",
+											"value": "categoria"
+										},
+										{
+											"key": "columns%5B6%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B7%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B7%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "order%5B0%5D%5Bcolumn%5D",
+											"value": "0"
+										},
+										{
+											"key": "order%5B0%5D%5Bdir%5D",
+											"value": "asc"
+										},
+										{
+											"key": "start",
+											"value": "0"
+										},
+										{
+											"key": "length",
+											"value": "25"
+										},
+										{
+											"key": "search%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "search%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "_",
+											"value": "1627242267463"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categoria Producto",
+					"item": [
+						{
+							"name": "CategoriaProductDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/categoria/producto",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"categoria",
+										"producto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CategoriaProductStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\":\"lenjubres\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/categoria/producto",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"categoria",
+										"producto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CategoriaProductUpdate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":2,\r\n    \"nombre\":\"churros\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/categoria/producto",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"categoria",
+										"producto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CategoriaProductDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/categoria/producto",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"categoria",
+										"producto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CategoriaProductById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/categoria/producto/3",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"categoria",
+										"producto",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CategoriaProductDatatable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/categoria/datatable?draw=1&columns%5B0%5D%5Bdata%5D=id&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=nombre&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=id&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=25&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1627242237744",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"categoria",
+										"datatable"
+									],
+									"query": [
+										{
+											"key": "draw",
+											"value": "1"
+										},
+										{
+											"key": "columns%5B0%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B0%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B1%5D%5Bdata%5D",
+											"value": "nombre"
+										},
+										{
+											"key": "columns%5B1%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B2%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B2%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "order%5B0%5D%5Bcolumn%5D",
+											"value": "0"
+										},
+										{
+											"key": "order%5B0%5D%5Bdir%5D",
+											"value": "asc"
+										},
+										{
+											"key": "start",
+											"value": "0"
+										},
+										{
+											"key": "length",
+											"value": "25"
+										},
+										{
+											"key": "search%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "search%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "_",
+											"value": "1627242237744"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Promotor",
+					"item": [
+						{
+							"name": "PromotorDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/promotor",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"promotor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PromotorStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"nombre\":\"Marinela\",\r\n\t\"direccion\":\"Lomas del paraiso 34 Guadalara 123\",\r\n\t\"telefono\":\"342434234234\",\r\n\t\"sitioWeb\":\"https://marinela.com.mx/\"\t\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/promotor",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"promotor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PromotorUpdate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":23,\r\n\t\"nombre\":\"Gamesa\",\r\n\t\"direccion\":\"Lomas del paraiso 34 Guadalara 123\",\r\n\t\"telefono\":\"342434234234\",\r\n\t\"sitioWeb\":\"https://gamesa.com.mx/\"\t\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/promotor",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"promotor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PromotorDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":23\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/promotor",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"promotor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PromotorById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/promotor/4",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"promotor",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PromotorDatatable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/promotor/datatable?draw=1&columns%5B0%5D%5Bdata%5D=id&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=nombre&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=direccion&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=telefono&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=sitioWeb&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=true&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B5%5D%5Bdata%5D=id&columns%5B5%5D%5Bname%5D=&columns%5B5%5D%5Bsearchable%5D=true&columns%5B5%5D%5Borderable%5D=true&columns%5B5%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B5%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=25&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1627242101623",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"promotor",
+										"datatable"
+									],
+									"query": [
+										{
+											"key": "draw",
+											"value": "1"
+										},
+										{
+											"key": "columns%5B0%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B0%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B1%5D%5Bdata%5D",
+											"value": "nombre"
+										},
+										{
+											"key": "columns%5B1%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B2%5D%5Bdata%5D",
+											"value": "direccion"
+										},
+										{
+											"key": "columns%5B2%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B3%5D%5Bdata%5D",
+											"value": "telefono"
+										},
+										{
+											"key": "columns%5B3%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B4%5D%5Bdata%5D",
+											"value": "sitioWeb"
+										},
+										{
+											"key": "columns%5B4%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B5%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B5%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "order%5B0%5D%5Bcolumn%5D",
+											"value": "0"
+										},
+										{
+											"key": "order%5B0%5D%5Bdir%5D",
+											"value": "asc"
+										},
+										{
+											"key": "start",
+											"value": "0"
+										},
+										{
+											"key": "length",
+											"value": "25"
+										},
+										{
+											"key": "search%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "search%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "_",
+											"value": "1627242101623"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Venta",
+					"item": [
+						{
+							"name": "VentaDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/venta",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"venta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "VentaStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id_cliente\": 2,\r\n    \"id_users\": 3,\r\n    \"precio_total\":345.50,\r\n    \"tipoPago\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/venta",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"venta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "VentaUpdate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":512,\r\n    \"id_cliente\": 2,\r\n    \"id_users\": 4,\r\n    \"precio_total\":345.50,\r\n    \"tipoPago\":\"Tarjeta debito\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/venta",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"venta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "VentaDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":502\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/venta",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"venta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "VentaById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/venta/3",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"venta",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "VentaDatatable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/venta/datatable?draw=1&columns%5B0%5D%5Bdata%5D=id&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=factura&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=impuesto&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=precio_total&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=tipoPago&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=true&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B5%5D%5Bdata%5D=nombreclient&columns%5B5%5D%5Bname%5D=&columns%5B5%5D%5Bsearchable%5D=true&columns%5B5%5D%5Borderable%5D=true&columns%5B5%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B5%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B6%5D%5Bdata%5D=nombreuser&columns%5B6%5D%5Bname%5D=&columns%5B6%5D%5Bsearchable%5D=true&columns%5B6%5D%5Borderable%5D=true&columns%5B6%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B6%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B7%5D%5Bdata%5D=7&columns%5B7%5D%5Bname%5D=&columns%5B7%5D%5Bsearchable%5D=true&columns%5B7%5D%5Borderable%5D=true&columns%5B7%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B7%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=25&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1627242063898",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"venta",
+										"datatable"
+									],
+									"query": [
+										{
+											"key": "draw",
+											"value": "1"
+										},
+										{
+											"key": "columns%5B0%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B0%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B1%5D%5Bdata%5D",
+											"value": "factura"
+										},
+										{
+											"key": "columns%5B1%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B2%5D%5Bdata%5D",
+											"value": "impuesto"
+										},
+										{
+											"key": "columns%5B2%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B3%5D%5Bdata%5D",
+											"value": "precio_total"
+										},
+										{
+											"key": "columns%5B3%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B4%5D%5Bdata%5D",
+											"value": "tipoPago"
+										},
+										{
+											"key": "columns%5B4%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B5%5D%5Bdata%5D",
+											"value": "nombreclient"
+										},
+										{
+											"key": "columns%5B5%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B6%5D%5Bdata%5D",
+											"value": "nombreuser"
+										},
+										{
+											"key": "columns%5B6%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B7%5D%5Bdata%5D",
+											"value": "7"
+										},
+										{
+											"key": "columns%5B7%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "order%5B0%5D%5Bcolumn%5D",
+											"value": "0"
+										},
+										{
+											"key": "order%5B0%5D%5Bdir%5D",
+											"value": "asc"
+										},
+										{
+											"key": "start",
+											"value": "0"
+										},
+										{
+											"key": "length",
+											"value": "25"
+										},
+										{
+											"key": "search%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "search%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "_",
+											"value": "1627242063898"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Detalle venta",
+					"item": [
+						{
+							"name": "DetalleVentaDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/detalle/venta",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"detalle",
+										"venta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DetalleVentaStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id_venta\": 20,\r\n    \"id_producto\":6,\r\n    \"cantidad\": 4,\r\n    \"precio\": 300.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/detalle/venta",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"detalle",
+										"venta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DetalleVentaUpdpate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1000,\r\n    \"id_venta\": 205,\r\n    \"id_producto\":6,\r\n    \"cantidad\": 4,\r\n    \"precio\": 300.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/detalle/venta",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"detalle",
+										"venta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DetalleVentaDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":303\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/detalle/venta",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"detalle",
+										"venta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DetalleVentaById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/detalle/venta/5",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"detalle",
+										"venta",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usurio",
+					"item": [
+						{
+							"name": "UsuarioDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/usuario",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UsuarioStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Luis Ramon Valencia Aguayo\",\r\n    \"email\":\"elcorreo@hotmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/usuario",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UsuarioUpdate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":3,\r\n    \"name\":\"Luis Ramon Valencia Aguayo\",\r\n    \"email\":\"elcorreo2@hotmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/usuario",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UsuarioDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":31\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/usuario",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"usuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UsuarioResetPassword",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"elcorreo2@hotmail.com\",\r\n    \"password\":\"123445678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/usuario/reset",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"usuario",
+										"reset"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UsurioById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/usuario/3",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"usuario",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UsuarioDatatable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/usuario/datatable?draw=1&columns%5B0%5D%5Bdata%5D=id&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=name&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=email&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=id&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=25&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1627242011928",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario",
+										"datatable"
+									],
+									"query": [
+										{
+											"key": "draw",
+											"value": "1"
+										},
+										{
+											"key": "columns%5B0%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B0%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B1%5D%5Bdata%5D",
+											"value": "name"
+										},
+										{
+											"key": "columns%5B1%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B2%5D%5Bdata%5D",
+											"value": "email"
+										},
+										{
+											"key": "columns%5B2%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B3%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B3%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "order%5B0%5D%5Bcolumn%5D",
+											"value": "0"
+										},
+										{
+											"key": "order%5B0%5D%5Bdir%5D",
+											"value": "asc"
+										},
+										{
+											"key": "start",
+											"value": "0"
+										},
+										{
+											"key": "length",
+											"value": "25"
+										},
+										{
+											"key": "search%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "search%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "_",
+											"value": "1627242011928"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Compra",
+					"item": [
+						{
+							"name": "CompraGetDataAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/compra",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"compra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CompraStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"nombre\": \"Coca colas\",\r\n\t\"fecha\": \"2021-02-13\",\r\n\t\"cantidad_stock\": 20,\r\n\t\"precio\": 19.20,\r\n\t\"id_almacen\": 1,\r\n\t\"id_promotor\": 3,\r\n\t\"id_producto\": 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/add/compra",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"add",
+										"compra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CompraUpdate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":2,\r\n\t\"nombre\": \"Coca colas\",\r\n\t\"fecha\": \"2021-02-13\",\r\n\t\"cantidad_stock\": 20,\r\n\t\"precio\": 19.20,\r\n\t\"id_almacen\": 1,\r\n\t\"id_promotor\": 3,\r\n\t\"id_producto\": 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/update/compra",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"update",
+										"compra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CompraDelete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/delete/compra",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"delete",
+										"compra"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CompraById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/compra/7",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"compra",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CompraDatatable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/compra/datatable?draw=1&columns%5B0%5D%5Bdata%5D=id&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=namecate&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=fecha&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=cantidad_stock&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=precio&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=true&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B5%5D%5Bdata%5D=folio&columns%5B5%5D%5Bname%5D=&columns%5B5%5D%5Bsearchable%5D=true&columns%5B5%5D%5Borderable%5D=true&columns%5B5%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B5%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B6%5D%5Bdata%5D=namepromo&columns%5B6%5D%5Bname%5D=&columns%5B6%5D%5Bsearchable%5D=true&columns%5B6%5D%5Borderable%5D=true&columns%5B6%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B6%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B7%5D%5Bdata%5D=nameproduct&columns%5B7%5D%5Bname%5D=&columns%5B7%5D%5Bsearchable%5D=true&columns%5B7%5D%5Borderable%5D=true&columns%5B7%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B7%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B8%5D%5Bdata%5D=imgFolio&columns%5B8%5D%5Bname%5D=&columns%5B8%5D%5Bsearchable%5D=true&columns%5B8%5D%5Borderable%5D=true&columns%5B8%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B8%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=25&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1627165734591",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"compra",
+										"datatable"
+									],
+									"query": [
+										{
+											"key": "draw",
+											"value": "1"
+										},
+										{
+											"key": "columns%5B0%5D%5Bdata%5D",
+											"value": "id"
+										},
+										{
+											"key": "columns%5B0%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B0%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B1%5D%5Bdata%5D",
+											"value": "namecate"
+										},
+										{
+											"key": "columns%5B1%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B1%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B2%5D%5Bdata%5D",
+											"value": "fecha"
+										},
+										{
+											"key": "columns%5B2%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B2%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B3%5D%5Bdata%5D",
+											"value": "cantidad_stock"
+										},
+										{
+											"key": "columns%5B3%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B3%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B4%5D%5Bdata%5D",
+											"value": "precio"
+										},
+										{
+											"key": "columns%5B4%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B4%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B5%5D%5Bdata%5D",
+											"value": "folio"
+										},
+										{
+											"key": "columns%5B5%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B5%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B6%5D%5Bdata%5D",
+											"value": "namepromo"
+										},
+										{
+											"key": "columns%5B6%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B6%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B7%5D%5Bdata%5D",
+											"value": "nameproduct"
+										},
+										{
+											"key": "columns%5B7%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B7%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "columns%5B8%5D%5Bdata%5D",
+											"value": "imgFolio"
+										},
+										{
+											"key": "columns%5B8%5D%5Bname%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B8%5D%5Bsearchable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B8%5D%5Borderable%5D",
+											"value": "true"
+										},
+										{
+											"key": "columns%5B8%5D%5Bsearch%5D%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "columns%5B8%5D%5Bsearch%5D%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "order%5B0%5D%5Bcolumn%5D",
+											"value": "0"
+										},
+										{
+											"key": "order%5B0%5D%5Bdir%5D",
+											"value": "asc"
+										},
+										{
+											"key": "start",
+											"value": "0"
+										},
+										{
+											"key": "length",
+											"value": "25"
+										},
+										{
+											"key": "search%5Bvalue%5D",
+											"value": ""
+										},
+										{
+											"key": "search%5Bregex%5D",
+											"value": "false"
+										},
+										{
+											"key": "_",
+											"value": "1627165734591"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Help",
+					"item": [
+						{
+							"name": "GetColonias",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cp\":44210\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URLBASIC}}/get/codigo/postal",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"codigo",
+										"postal"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetTypePay",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URLBASIC}}/get/type/pago",
+									"host": [
+										"{{URLBASIC}}"
+									],
+									"path": [
+										"get",
+										"type",
+										"pago"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PrecioProduct",
+					"item": [
+						{
+							"name": "PrecioProductById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/precio/product/2",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"precio",
+										"product",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CuentaporCobrar",
+					"item": [
+						{
+							"name": "CuentaporCobrarStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"venta\":1,\r\n\t\"cliente\":2,\r\n\t\"precio\": 3020,\r\n\t\"pagos\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/add/cuenta/cobrar",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"add",
+										"cuenta",
+										"cobrar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CuentaporCobrarDetalleStore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cuentacobra\":1,\r\n    \"precio\":200\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/add/cuenta/cobrar/detalle",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"add",
+										"cuenta",
+										"cobrar",
+										"detalle"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URLBASIC",
+			"value": "127.0.0.1/tiendaweb/public/api"
+		},
+		{
+			"key": "URL",
+			"value": "127.0.0.1/tiendaweb/public"
+		}
+	]
+}
