@@ -13,8 +13,9 @@
 1: Abre una terminal dentro del proyecto y ejecuta **composer install**
 2: Ejecuta **php artisan migrate:refresh --seed**
 3: Ejecuta el comando **php artisan serve**
-4: abre tu navegador de preferencia y abre la siguiente direccion [tienda laravel](http://127.0.0.1:8000 "tienda laravel")
-5: ingresa este correo superadmin@gmail.com y esta contraseña Admin123 para loguearte.
+4: Abre tu navegador de preferencia y abre la siguiente direccion [tienda laravel](http://127.0.0.1:8000 "tienda laravel")
+5: Ingresa este correo superadmin@gmail.com y esta contraseña Admin123 para loguearte.
+6: Puedes abrir postman para ver las peticiones solo descarga el archivo json para importarlo en postman desde [aqui](https://github.com/LuisRaymons/tienda-web/blob/3b5c5ff22cddedc48f330f1c4c040aa6c8888e61/peticiones%20postman/Proyecto%20web%20y%20pyqt5.postman_collection.json "aqui")
 
 #### Versionado
 1.0.0 :
