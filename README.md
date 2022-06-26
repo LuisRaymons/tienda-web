@@ -1,66 +1,42 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Tienda desarrollada en Laravel(PHP)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![LRVA Asesorias](LRVA Asesorias "LRVA Asesorias")](https://drive.google.com/file/d/1KWxrBekfb4q_oSWyMH0HMp6QfURAp2U7/view "LRVA Asesorias")
 
-## About Laravel
+#### Herramientas utilizadas:
+- [XAMPP] [Descargar aqui](https://www.apachefriends.org/download.html "Descargar aqui")
+- [COMPOSER] [Descargar aqui](https://getcomposer.org/Composer-Setup.exe "Descargar aqui")
+- [MYSQL WORKBENCH] [Descargar aqui](https://dev.mysql.com/downloads/file/?id=510444 "Descargar aqui")
+- [POSTMAN] [Descargar aqui](https://dl.pstmn.io/download/latest/win64 "Descargar aqui")
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+#### Instalación:
+1: Abre una terminal dentro del proyecto y ejecuta **composer install**
+2: Ejecuta **php artisan migrate:refresh --seed**
+3: Ejecuta el comando **php artisan serve**
+4: abre tu navegador de preferencia y abre la siguiente direccion [tienda laravel](http://127.0.0.1:8000 "tienda laravel")
+5: ingresa este correo superadmin@gmail.com y esta contraseña Admin123 para loguearte.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Versionado
+1.0.0 :
+	* Creacion, Modificacion y Eliminación Categoria de productos
+	* Creacion, Modificacion y Eliminación Producto
+	* Creacion, Modificacion y Eliminación Cliente
+	* Creacion, Modificacion y Eliminación Usuario
+	* Creacion, Modificacion y Eliminación Promotor
+	* Creacion, Modificacion y Eliminación Compra
+	* Creacion, Detalle y Eliminación Venta
+	* Creacion, Modificacion y Eliminación Producto Precio 
+	* Inicio de session por rol
 
-## Learning Laravel
+#### Autores
+- Luis Ramon Valencia - Trabajo de desarrollo y documentacion - [Luis Ramón Valencia](https://github.com/LuisRaymons "Luis Ramón Valencia")
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### Licencia
+Este proyecto está bajo la Licencia(MIT) - mira el archivo [aqui](https://github.com/LuisRaymons/tiendaC-/blob/21368f3c5fe04bfd6df1b640331470046e3bde33/LICENSE.md "aqui") para mas detalle.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
