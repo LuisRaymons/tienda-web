@@ -14,7 +14,7 @@ use App\Models\PrecioProductoModel;
 use App\Models\PromotorModel;
 use App\Models\VentaModel;
 use App\Models\VentaDetailModel;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class AllSeeder extends Seeder
 {

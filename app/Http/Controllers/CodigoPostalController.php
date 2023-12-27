@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CodigoPostalModel;
 use Illuminate\Support\Facades\Log;
-use Response;
-use DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
 
 class CodigoPostalController extends Controller
 {

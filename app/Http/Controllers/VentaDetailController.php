@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\ProductoModel;
 use App\Models\VentaModel;
 use App\Models\VentaDetailModel;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class VentaDetailController extends Controller
 {

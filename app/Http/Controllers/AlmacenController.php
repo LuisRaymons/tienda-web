@@ -9,8 +9,8 @@ use App\Models\CategoriaModel;
 use App\Models\ProductoModel;
 use App\Models\AlmacenModel;
 use Illuminate\Support\Facades\Log;
-use Response;
-use DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
 
 class AlmacenController extends Controller
 {

@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\PromotorModel;
 use Illuminate\Support\Facades\Log;
-use Response;
-use DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File AS Filelaravel;
+use Illuminate\Support\Facades\DB;
+use Exception;
 
 class PromotorController extends Controller
 {
@@ -87,7 +90,7 @@ class PromotorController extends Controller
               $file = $request->file('imgnewpromotor');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/promotor/" . $namefull, \File::get($file));
+              Storage::disk('local')->put("asset/promotor/" . $namefull, Filelaravel::get($file));
             }
           $newPromotor = new PromotorModel();
           $newPromotor->nombre = $request->namepromotor;
@@ -181,12 +184,12 @@ class PromotorController extends Controller
              $carpeta = $fileimg[count($fileimg) -2];
              $file = $fileimg[count($fileimg) - 1];
 
-             \Storage::delete("asset/" . $carpeta . "/" . $file);
+             Storage::delete("asset/" . $carpeta . "/" . $file);
 
               $file = $request->file('imgnewpromotoredit');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/promotor/" . $namefull, \File::get($file));
+              Storage::disk('local')->put("asset/promotor/" . $namefull, Filelaravel::get($file));
             }
           $editPromotor = PromotorModel::find($request->idpromotor);
           $editPromotor->nombre = $request->namepromotoredit;
@@ -337,7 +340,7 @@ class PromotorController extends Controller
               $file = $request->file('img');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/promotor/" . $namefull, \File::get($file));
+              Storage::disk('local')->put("asset/promotor/" . $namefull, Filelaravel::get($file));
             }
 
             $modelproveedor = new PromotorModel();
@@ -396,7 +399,7 @@ class PromotorController extends Controller
              $file = $request->file('img');
              $nombre = $file->getClientOriginalName();
              $namefull = str_replace(' ', '-', $nombre);
-             \Storage::disk('local')->put("asset/promotor/" . $namefull, \File::get($file));
+             Storage::disk('local')->put("asset/promotor/" . $namefull, Filelaravel::get($file));
             }
 
             $modelproveedor = PromotorModel::find($request->id);

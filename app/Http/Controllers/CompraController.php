@@ -10,8 +10,11 @@ use App\Models\ProductoModel;
 use App\Models\PromotorModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
-use Response;
-use DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File AS Filelaravel;
+use Illuminate\Support\Facades\DB;
+use Exception;
 
 class CompraController extends Controller
 {
@@ -91,7 +94,7 @@ class CompraController extends Controller
               $file = $request->file('imgnewcompra');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/compra/" . $namefull, \File::get($file));
+              Storage::disk('local')->put("asset/compra/" . $namefull, Filelaravel::get($file));
             }
             $valoridalmacen = 0;
             $existproduct = AlmacenModel::whereNull('deleted_at')->where('id_producto','=', $request->productnewcompra)->count();
@@ -160,13 +163,13 @@ class CompraController extends Controller
            $fileimg = explode("/",$modeldeleteimg['img']);
            $carpeta = $fileimg[count($fileimg) -2];
            $fileexis = $fileimg[count($fileimg) - 1];
-           \Storage::delete("asset/compra/" . $carpeta . "/" . $fileexis);
+           Storage::delete("asset/compra/" . $carpeta . "/" . $fileexis);
 
 
             $file = $request->file('imgeditcompra');
             $nombre = $file->getClientOriginalName();
             $namefull = str_replace(' ', '-', $nombre);
-            \Storage::disk('local')->put("asset/compra/" . $namefull, \File::get($file));
+            Storage::disk('local')->put("asset/compra/" . $namefull, Filelaravel::get($file));
           }
 
          $almacen = AlmacenModel::where('id','=',$request->idalmacenedit)
@@ -335,7 +338,7 @@ class CompraController extends Controller
             $file = $request->file('img');
             $nombre = $file->getClientOriginalName();
             $namefull = str_replace(' ', '-', $nombre);
-            \Storage::disk('local')->put("asset/compra/" . $namefull, \File::get($file));
+            Storage::disk('local')->put("asset/compra/" . $namefull, Filelaravel::get($file));
           }
 
           $product = ProductoModel::whereNull('deleted_at')->where('nombre','=', trim($request->product))->count();
@@ -445,12 +448,12 @@ class CompraController extends Controller
            $fileimg = explode("/",$compratemporal->img);
            $carpeta = $fileimg[count($fileimg) -2];
            $fileexis = $fileimg[count($fileimg) - 1];
-           \Storage::delete("asset/compra/" . $carpeta . "/" . $fileexis);
+           Storage::delete("asset/compra/" . $carpeta . "/" . $fileexis);
 
             $file = $request->file('img');
             $nombre = $file->getClientOriginalName();
             $namefull = str_replace(' ', '-', $nombre);
-            \Storage::disk('local')->put("asset/compra/" . $namefull, \File::get($file));
+            Storage::disk('local')->put("asset/compra/" . $namefull, Filelaravel::get($file));
           }
 
           $almacen = AlmacenModel::where('id_producto','=',$compratemporal->id_producto)

@@ -9,8 +9,11 @@ use App\Models\CategoriaModel;
 use App\Models\ProductoModel;
 use App\Models\AlmacenModel;
 use Illuminate\Support\Facades\Log;
-use Response;
-use DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File AS Filelaravel;
+use Illuminate\Support\Facades\DB;
+use Exception;
 
 class ProductoController extends Controller
 {
@@ -95,7 +98,7 @@ class ProductoController extends Controller
               $file = $request->file('imgnewproduct');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/productos/" . $namefull, \File::get($file));
+              Storage::disk('local')->put("asset/productos/" . $namefull, Filelaravel::get($file));
             }
 
             $newProducto = new ProductoModel();
@@ -194,12 +197,12 @@ class ProductoController extends Controller
               $carpeta = $fileimg[count($fileimg) -2];
               $file = $fileimg[count($fileimg) - 1];
 
-              \Storage::delete("asset/" . $carpeta . "/" . $file);
+              Storage::delete("asset/" . $carpeta . "/" . $file);
 
                $file = $request->file('imgproductedit');
                $nombre = $file->getClientOriginalName();
                $namefull = str_replace(' ', '-', $nombre);
-               \Storage::disk('local')->put("asset/productos/" . $namefull, \File::get($file));
+               Storage::disk('local')->put("asset/productos/" . $namefull, Filelaravel::get($file));
              }
 
             $modelproductedit = ProductoModel:: find($request->idproductedit);
@@ -369,7 +372,7 @@ class ProductoController extends Controller
                 $file = $request->file('img');
                 $nombre = $file->getClientOriginalName();
                 $namefull = str_replace(' ', '-', $nombre);
-                \Storage::disk('local')->put("asset/productos/" . $namefull, \File::get($file));
+                Storage::disk('local')->put("asset/productos/" . $namefull, Filelaravel::get($file));
               }
 
              $categoria = CategoriaModel::whereNull('deleted_at')->where('nombre','=',trim($request->categoria))->first();
@@ -436,7 +439,7 @@ class ProductoController extends Controller
                 $file = $request->file('img');
                 $nombre = $file->getClientOriginalName();
                 $namefull = str_replace(' ', '-', $nombre);
-                \Storage::disk('local')->put("asset/productos/" . $namefull, \File::get($file));
+                Storage::disk('local')->put("asset/productos/" . $namefull, Filelaravel::get($file));
               }
 
              $categoria = CategoriaModel::whereNull('deleted_at')->where('nombre','=',trim($request->categoria))->first();

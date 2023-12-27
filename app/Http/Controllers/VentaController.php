@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Log;
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
-use Response;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use Exception;
 
 class VentaController extends Controller
 {

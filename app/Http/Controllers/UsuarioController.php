@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
-use Response;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File AS Filelaravel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Exception;
 
 class UsuarioController extends Controller
 {
@@ -84,7 +87,7 @@ class UsuarioController extends Controller
                 $file = $request->file('imgnewuser');
                 $nombre = $file->getClientOriginalName();
                 $namefull = str_replace(' ', '-', $nombre);
-                \Storage::disk('local')->put("asset/users/" . $namefull, \File::get($file));
+                Storage::disk('local')->put("asset/users/" . $namefull, Filelaravel::get($file));
               }
 
              $newUser = new User();
@@ -171,12 +174,12 @@ class UsuarioController extends Controller
              $carpeta = $fileimg[count($fileimg) -2];
              $file = $fileimg[count($fileimg) - 1];
 
-             \Storage::delete("asset/" . $carpeta . "/" . $file);
+             Storage::delete("asset/" . $carpeta . "/" . $file);
 
               $file = $request->file('imguseredit');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/users/" . $namefull, \File::get($file));
+              Storage::disk('local')->put("asset/users/" . $namefull, Filelaravel::get($file));
             }
 
            $userexist = User::whereNull('deleted_at')->where('email','=',$request->emailuseredit)->count();
@@ -374,7 +377,7 @@ class UsuarioController extends Controller
                 $file = $request->file('img');
                 $nombre = $file->getClientOriginalName();
                 $namefull = str_replace(' ', '-', $nombre);
-                \Storage::disk('local')->put("asset/users/" . $namefull, \File::get($file));
+                Storage::disk('local')->put("asset/users/" . $namefull, Filelaravel::get($file));
               }
 
              $modeluser = new User();
@@ -436,7 +439,7 @@ class UsuarioController extends Controller
               $file = $request->file('img');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/users/" . $namefull, \File::get($file));
+              Storage::disk('local')->put("asset/users/" . $namefull, Filelaravel::get($file));
             }
 
             $userexists = User::whereNull('deleted_at')->where('id','=',$request->id)->count();

@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\ClienteModel;
-use Response;
-use DB;
+use Illuminate\Support\Facades\File AS Filelaravel;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
 use Auth;
+use Exception;
 
 class ClienteController extends Controller
 {
@@ -91,7 +94,7 @@ class ClienteController extends Controller
                   $file = $request->file('imgnewclient');
                   $nombre = $file->getClientOriginalName();
                   $namefull = str_replace(' ', '-', $nombre);
-                  \Storage::disk('local')->put("asset/clientes/" . $namefull, \File::get($file));
+                  Storage::disk('local')->put("asset/clientes/" . $namefull, Filelaravel::get($file));
                 }
 
                 $newcliente = new ClienteModel();
@@ -119,7 +122,7 @@ class ClienteController extends Controller
            $result['status'] = 'warning';
            $result['msm'] = $validator->errors();
          }
-      } catch (\Exception $e) {
+      } catch (Exception $e) {
         Log::error("Ocurrio un error al insertar un cliente" . "\n" . $e->getMessage());
         $result['code'] = 500;
         $result['status'] = 'error';
@@ -167,12 +170,12 @@ class ClienteController extends Controller
               $carpeta = $fileimg[count($fileimg) -2];
               $file = $fileimg[count($fileimg) - 1];
 
-              \Storage::delete("asset/" . $carpeta . "/" . $file);
+              Storage::delete("asset/" . $carpeta . "/" . $file);
 
               $file = $request->file('imgeditclient');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/clientes/" . $namefull, \File::get($file));
+              Storage::disk('local')->put("asset/clientes/" . $namefull, Filelaravel::get($file));
             }
 
            $modelupdate = ClienteModel::find($request->idupdateclient);
@@ -379,7 +382,7 @@ class ClienteController extends Controller
               $file = $request->file('img');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/cliente/" . $namefull,  \File::get($file));
+              Storage::disk('local')->put("asset/cliente/" . $namefull,  Filelaravel::get($file));
             }
 
              $modelcliente = new ClienteModel();
@@ -440,7 +443,7 @@ class ClienteController extends Controller
               $file = $request->file('img');
               $nombre = $file->getClientOriginalName();
               $namefull = str_replace(' ', '-', $nombre);
-              \Storage::disk('local')->put("asset/cliente/" . $namefull,  \File::get($file));
+              Storage::disk('local')->put("asset/cliente/" . $namefull,  Filelaravel::get($file));
             }
 
              $modelcliente = ClienteModel::find($request->id);

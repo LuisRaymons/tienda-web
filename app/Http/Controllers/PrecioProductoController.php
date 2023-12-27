@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\PrecioProductoModel;
 use App\Models\ProductoModel;
 use Illuminate\Support\Facades\Log;
-use Response;
+use Illuminate\Support\Facades\Response;
 
 class PrecioProductoController extends Controller
 {

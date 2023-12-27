@@ -9,8 +9,8 @@ use App\Models\AlmacenModel;
 use App\Models\VentaModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
-use Response;
-use DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
 use DateTime;
 
 class Dashboardcontroller extends Controller

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\CategoriaModel;
 use Illuminate\Support\Facades\Log;
-use Response;
+use Illuminate\Support\Facades\Response;
 
 class CategoriaController extends Controller
 {
