@@ -111,7 +111,6 @@ const editarcliente = (id) => {
     },
     success:function(client){
       if(client.code == 200){
-        console.log(client);
         var data = client.data;
         if(data != null){
           $("#nameclientedit").val(data.nombre);

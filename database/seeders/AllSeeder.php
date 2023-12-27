@@ -62,5 +62,6 @@ class AllSeeder extends Seeder
           });
         });
         */
+        
     }
 }

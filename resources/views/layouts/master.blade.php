@@ -35,6 +35,7 @@
 
         <ul class="navbar-nav ml-auto">
           <!-- Logo cerrar session -->
+          <a href="logout">Cerrar session</a>
         </ul>
       </nav>
 

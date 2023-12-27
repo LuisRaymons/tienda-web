@@ -182,8 +182,8 @@ class UsuarioController extends Controller
               Storage::disk('local')->put("asset/users/" . $namefull, Filelaravel::get($file));
             }
 
-           $userexist = User::whereNull('deleted_at')->where('email','=',$request->emailuseredit)->count();
-           if($userexist > 0){
+           $userexist = User::whereNull('deleted_at')->where('id','=',$request->idupdateuser)->count();
+           if($userexist = 1){
              $updateUser = User::whereNull('deleted_at')->find($request->idupdateuser);
              $updateUser->name = isset($request->nameuseredit) ? $request->nameuseredit : $updateUser->name;
              $updateUser->email = isset($request->emailuseredit) ? $request->emailuseredit : $updateUser->email;

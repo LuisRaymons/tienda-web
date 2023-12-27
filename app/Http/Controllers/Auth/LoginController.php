@@ -8,9 +8,9 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Response;
+use Illuminate\Support\Facades\Response;
 
 class LoginController extends Controller{
     use AuthenticatesUsers;
@@ -50,21 +50,22 @@ class LoginController extends Controller{
       }
       return Response::json($result);
     }
-    public function logout(Request $request){
+    public function logout(){
 
       try {
         Auth::logout();
         $result['code'] = 200;
         $result['status'] = 'success';
         $result['msm'] = 'Cerraste la session con exito';
-        //return redirect('login');
+        return redirect('/');
 
       } catch (\Exception $e) {
         $resul['code'] = 500;
         $result['status'] = 'error';
         $resul['msm'] = 'Error al cerrar session intente mas tarde';
+        return redirect('home');
       }
-      return Response::json($result);
+      //return Response::json($result);
     }
     public function store(Request $request){
        try {

@@ -229,6 +229,8 @@ $("#btnsaveproduct").click(function(e){
         $("#nav-table").addClass('active');
         $("#nav-table").attr('aria-selected', true);
         $("#nav-table-target").addClass('active show');
+
+        tabledoading();
       }, error:function(e){
         console.log(e);
       }

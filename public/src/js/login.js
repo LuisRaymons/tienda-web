@@ -1,7 +1,13 @@
 var validformlogin;
 var validformregister;
 
+
 $(document).ready(function() {
+    var user = localStorage.getItem("user");
+
+    if(user != null){
+      window.location.replace("home");
+    }
 
     validformlogin = $("#form-login").validate({
         rules: {
@@ -89,6 +95,9 @@ $("#btn-login").click(function(e){
           },
           success:function(usuario){
             if(usuario.code == 200){
+              
+              localStorage.setItem("user", usuario.data.name);
+              
               window.location.replace("home");
             } else{
               Swal.fire({

@@ -41,7 +41,7 @@
       </div>
       <div class="form-group">
         <label>Precio</label>
-        <input type="number" class="form-control" name="precioproduct" id="precioproduct" step="0.50" placeholder="0.00" required/>
+        <input type="number" class="form-control" name="precioproduct" id="precioproduct" placeholder="0.00" required/>
 
       </div>
       <div class="d-grid gap-2">
