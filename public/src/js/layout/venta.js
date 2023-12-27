@@ -548,7 +548,7 @@ $("#payventa").click(function(e){
   } else{
     if(pagoselect == 1){
       $("#modalPagoRecibe").modal("show");
-    } else if(pago == 3){
+    } else if(pagoselect == 3){
 
         // Agrega credenciales de SDK
         const mp = new MercadoPago("TEST-05200779-bcbd-401a-bfc7-a80485ea0b47", {

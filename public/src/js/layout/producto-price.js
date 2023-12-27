@@ -117,7 +117,7 @@ const loadingproducts = (type,cadena) => {
      width: '100%',
      theme: "classic",
      ajax: {
-        url: 'producto/price/missing',
+        url: 'productoprecios/missing',
         dataType: 'json',
         type: 'GET',
         processResults({
@@ -141,7 +141,7 @@ const loadingproductsprecio = (type,cadena,id) => {
      width: '100%',
      theme: "classic",
      ajax: {
-        url: 'producto/price/exists',
+        url: 'productoprecios/exists',
         dataType: 'json',
         type: 'GET',
         processResults({
@@ -186,7 +186,7 @@ $("#btnsavepriceproduct").click(function(e){
       if(email == emailuser){
         var formdatanewprecioproducto = new FormData($("#form-new-product-price")[0]);
         $.ajax({
-          url: "producto/precios/new",
+          url: "productoprecios/new",
           type: "POST",
           data:formdatanewprecioproducto,
           processData: false,

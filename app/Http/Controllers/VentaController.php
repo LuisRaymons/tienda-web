@@ -68,11 +68,11 @@ class VentaController extends Controller
           $result['recordsFiltered']= count($venta);//count($arraydatos);
           $result['data'] = $arraydatos;
         } else{
-          $result['code'] = 400;
-          $result['status'] = 'error';
+          $result['code'] = 200;
+          $result['status'] = 'success';
           $result['draw'] = 0;
-          $result['recordsTotal']=0;
-          $result['recordsFiltered']=0;
+          $result['recordsTotal'] = 0;
+          $result['recordsFiltered'] = 0;
           $result['data'] = array();
         }
 
