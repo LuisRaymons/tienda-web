@@ -1,17 +1,11 @@
 <?php
-
 use Mockery as m;
-use PHPUnit\Framework\TestCase;
 use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 
-class BaconQrCodeGeneratorTest extends TestCase
-{
+class BaconQrCodeGeneratorTest extends \PHPUnit_Framework_TestCase {
+
     public function tearDown()
     {
-        if ($container = m::getContainer()) {
-            $this->addToAssertionCount($container->mockery_getExpectationCount());
-        }
-
         m::close();
     }
 
@@ -22,7 +16,7 @@ class BaconQrCodeGeneratorTest extends TestCase
         $this->qrCode = new BaconQrCodeGenerator($this->writer, $this->format);
     }
 
-    public function test_it_sets_the_margin()
+    public function testSetMargin()
     {
         $this->format->shouldReceive('setMargin')
             ->with('50')
@@ -31,11 +25,11 @@ class BaconQrCodeGeneratorTest extends TestCase
         $this->writer->shouldReceive('getRenderer')
             ->once()
             ->andReturn($this->format);
-
+        
         $this->qrCode->margin(50);
     }
 
-    public function test_it_sets_the_background_color()
+    public function testSetBackgroundColor()
     {
         $this->format->shouldReceive('setBackgroundColor')
             ->once();
@@ -44,10 +38,10 @@ class BaconQrCodeGeneratorTest extends TestCase
             ->once()
             ->andReturn($this->format);
 
-        $this->qrCode->backgroundColor(255, 255, 255);
+        $this->qrCode->backgroundColor(255,255,255);
     }
 
-    public function test_it_sets_the_foreground_color()
+    public function testSetColor()
     {
         $this->format->shouldReceive('setForegroundColor')
             ->once();
@@ -56,10 +50,10 @@ class BaconQrCodeGeneratorTest extends TestCase
             ->once()
             ->andReturn($this->format);
 
-        $this->qrCode->color(255, 255, 255);
+        $this->qrCode->color(255,255,255);
     }
 
-    public function test_it_sets_the_size()
+    public function testSetSize()
     {
         $this->format->shouldReceive('setHeight')
             ->with(50)
@@ -75,7 +69,7 @@ class BaconQrCodeGeneratorTest extends TestCase
         $this->qrCode->size(50);
     }
 
-    public function test_it_sets_a_png_format()
+    public function testSetFormatPng()
     {
         $this->writer->shouldReceive('setRenderer')
             ->with('BaconQrCode\Renderer\Image\Png')
@@ -84,7 +78,7 @@ class BaconQrCodeGeneratorTest extends TestCase
         $this->qrCode->format('png');
     }
 
-    public function test_it_sets_a_eps_format()
+    public function testSetFormatEps()
     {
         $this->writer->shouldReceive('setRenderer')
             ->with('BaconQrCode\Renderer\Image\Eps')
@@ -93,7 +87,7 @@ class BaconQrCodeGeneratorTest extends TestCase
         $this->qrCode->format('eps');
     }
 
-    public function test_it_sets_a_svg_format()
+    public function testSetFormatSvg()
     {
         $this->writer->shouldReceive('setRenderer')
             ->with('BaconQrCode\Renderer\Image\Svg')
@@ -105,12 +99,12 @@ class BaconQrCodeGeneratorTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function test_it_throws_an_exception_with_an_invalid_format()
+    public function testSetFormatUnknown()
     {
         $this->qrCode->format('random');
     }
 
-    public function test_it_generates_a_string()
+    public function testGenerate()
     {
         $this->writer->shouldReceive('writeString')
             ->with('qrCode', m::type('string'), m::type('int'))
@@ -119,19 +113,13 @@ class BaconQrCodeGeneratorTest extends TestCase
         $this->qrCode->generate('qrCode');
     }
 
-    public function test_it_calls_a_valid_dynamic_method_and_generates_a_qrcode()
+    public function testGenerateFile()
     {
-        $this->writer->shouldReceive('writeString')
+        $this->writer->shouldReceive('writeFile')
+            ->with('qrCode', 'foo.txt', m::type('string'), m::type('int'))
             ->once();
 
-        $this->qrCode->phoneNumber('555-555-5555');
-    }
-
-    /**
-     * @expectedException \BadMethodCallException
-     */
-    public function test_it_throws_an_exception_if_datatype_is_not_found()
-    {
-        $this->qrCode->notReal('foo');
+        $this->qrCode->generate('qrCode', 'foo.txt');
     }
 }
+ 

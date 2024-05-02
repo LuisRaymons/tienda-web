@@ -81,6 +81,6 @@
 
 
 @section('js')
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+  <script src="../src/plugging/jqueryValidate/jquery.validate.min.js"></script>
   <script src="src/js/login.js"></script>
 @endsection

@@ -38,11 +38,7 @@ class ReedSolomonTest extends TestCase
      */
     public function testCodec($symbolSize, $generatorPoly, $firstRoot, $primitive, $numRoots)
     {
-        if (defined('MT_RAND_PHP')) {
-            mt_srand(0xdeadbeef, MT_RAND_PHP);
-        } else {
-            mt_srand(0xdeadbeef);
-        }
+        mt_srand(0xdeadbeef);
 
         $blockSize = (1 << $symbolSize) - 1;
         $dataSize  = $blockSize - $numRoots;
@@ -50,7 +46,7 @@ class ReedSolomonTest extends TestCase
 
         for ($errors = 0; $errors <= $numRoots / 2; $errors++) {
             // Load block with random data and encode
-            $block = SplFixedArray::fromArray(array_fill(0, $blockSize, 0), false);
+            $block = SplFixedArray::fromArray(array_fill(0, $blockSize, 0));
 
             for ($i = 0; $i < $dataSize; $i++) {
                 $block[$i] = mt_rand(0, $blockSize);
@@ -58,8 +54,8 @@ class ReedSolomonTest extends TestCase
 
             // Make temporary copy
             $tBlock         = clone $block;
-            $parity         = SplFixedArray::fromArray(array_fill(0, $numRoots, 0), false);
-            $errorLocations = SplFixedArray::fromArray(array_fill(0, $blockSize, 0), false);
+            $parity         = SplFixedArray::fromArray(array_fill(0, $numRoots, 0));
+            $errorLocations = SplFixedArray::fromArray(array_fill(0, $blockSize, 0));
             $erasures       = array();
 
             // Create parity
@@ -88,7 +84,7 @@ class ReedSolomonTest extends TestCase
                 $tBlock[$errorLocation] ^= $errorValue;
             }
 
-            $erasures = SplFixedArray::fromArray($erasures, false);
+            $erasures = SplFixedArray::fromArray($erasures);
 
             // Decode the errored block
             $foundErrors = $codec->decode($tBlock, $erasures);

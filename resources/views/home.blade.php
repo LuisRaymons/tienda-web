@@ -54,6 +54,6 @@
 
 
 @section('js')
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-  <script src="src/js/dashboard.js"></script>
+  <script src="../src/plugging/chart/chart.min.js"></script>
+  <script src="../src/js/dashboard.js"></script>
 @endsection

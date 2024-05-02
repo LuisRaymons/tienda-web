@@ -13,7 +13,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "mike42/escpos-php": "^3.0",
-        "simplesoftwareio/simple-qrcode": "~2"
+        "simplesoftwareio/simple-qrcode": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

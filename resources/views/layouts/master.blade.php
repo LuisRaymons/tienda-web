@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title>Tienda LRVA</title>
     <link rel="icon" href="src/img/tienda.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../src/plugging/bootstrap/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"/>
@@ -146,9 +147,9 @@
       </div>
 
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../src/plugging/bootstrap/js/bootstrap.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+      <script src="../src/plugging/jqueryValidate/jquery.validate.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
       <script src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
       <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
@@ -161,7 +162,7 @@
       <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
       <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
       <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="src/plugging/sweetalert2/sweetalert2.all.min.js"></script>
       <script src="src/plugging/alertify/alertify.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
       <script src="src/js/adminlte.js" charset="utf-8"></script>

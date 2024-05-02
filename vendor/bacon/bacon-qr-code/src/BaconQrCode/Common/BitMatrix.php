@@ -257,7 +257,7 @@ class BitMatrix
             return null;
         }
 
-        return SplFixedArray::fromArray(array($left, $top, $width, $height), false);
+        return SplFixedArray::fromArray(array($left, $top, $width, $height));
     }
 
     /**
@@ -291,7 +291,7 @@ class BitMatrix
 
         $x += $bit;
 
-        return SplFixedArray::fromArray(array($x, $y), false);
+        return SplFixedArray::fromArray(array($x, $y));
     }
 
     /**
@@ -325,7 +325,7 @@ class BitMatrix
 
         $x += $bit;
 
-        return SplFixedArray::fromArray(array($x, $y), false);
+        return SplFixedArray::fromArray(array($x, $y));
     }
 
     /**
