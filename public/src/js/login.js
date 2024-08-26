@@ -4,10 +4,11 @@ var validformregister;
 
 $(document).ready(function() {
     var user = localStorage.getItem("user");
-
+    /*
     if(user != null){
       window.location.replace("home");
     }
+    */
 
     validformlogin = $("#form-login").validate({
         rules: {

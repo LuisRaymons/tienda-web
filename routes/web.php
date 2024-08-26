@@ -17,9 +17,10 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return view('auth.login');
-});
+})->name('login')->middleware('guest');
 
 //Auth::routes();
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login')->middleware('guest');

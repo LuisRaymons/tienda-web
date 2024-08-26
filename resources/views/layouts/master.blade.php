@@ -36,7 +36,7 @@
 
         <ul class="navbar-nav ml-auto">
           <!-- Logo cerrar session -->
-          <a href="logout">Cerrar session</a>
+          <a href="{{route('logout')}}">Cerrar session</a>
         </ul>
       </nav>
 
