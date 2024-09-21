@@ -89,10 +89,10 @@ class AlmacenController extends Controller
     }
     public function update(Request $request){
       try {
-        if($request->idalmacenedit && $request->iduseredit){
-          $almacenupdate =  AlmacenModel::find($request->idalmacenedit);
+        if($request->id && $request->id){
+          $almacenupdate =  AlmacenModel::find($request->id);
           $almacenupdate->entrada = isset($request->entryalmacen) ? $request->entryalmacen : 0;
-          $almacenupdate->entrada = isset($request->exitalmacen) ? $request->exitalmacen : 0;
+          $almacenupdate->salida = isset($request->exitalmacen) ? $request->exitalmacen : 0;
           $almacenupdate->stock = isset($request->stockalmacen) ? $request->stockalmacen : 0;
           $almacenupdate->id_user = isset($request->iduseredit) ? $request->iduseredit : 0;
           $almacenupdate->updated_at = date('Y-m-d H:m:s');
@@ -100,7 +100,7 @@ class AlmacenController extends Controller
 
           $result['code'] = 200;
           $result['status'] = 'success';
-          $result['msm'] = 'SE actualizaron los datos de almacen';
+          $result['msm'] = 'Se actualizaron los datos de almacen';
 
         } else{
           $result['code'] = 400;
@@ -213,6 +213,7 @@ class AlmacenController extends Controller
              $modelalmacen->entrada = isset($request->entry) ? $request->entry : 0;
              $modelalmacen->salida = isset($request->exit) ? $request->exit : 0;
              $modelalmacen->stock = isset($request->stock) ? $request->stock : 0;
+             $modelalmacen->id_user = isset($request->idUser) ? $request->idUser : 0;
              $modelalmacen->updated_at = date('Y-m-d H:m:s');
              $modelalmacen->save();
 

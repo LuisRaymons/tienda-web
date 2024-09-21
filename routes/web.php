@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/update', [ProductoController::class, 'update'])->name('productupdate');
     Route::delete('/delete/{id}', [ProductoController::class, 'destroy'])->name('destroyproduct');
     Route::get('/all', [ProductoController::class,'getproducts'])->name('getproducts');
-    Route::get('/existencia/{id}',[ProductoController::class, 'existproductalmacen'])->name('existproductalmacen');
+    Route::post('/existencia',[ProductoController::class, 'existproductalmacen'])->name('existproductalmacen');
   });
   // Cliente
   Route::prefix('cliente')->group(function(){
